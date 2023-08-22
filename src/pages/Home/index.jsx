@@ -1,5 +1,5 @@
 import "./style.css";
 
-export function Home() {
+export const Home = () => {
   return <h1>Shopping App</h1>;
-}
+};
