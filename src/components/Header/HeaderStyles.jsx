@@ -1,12 +1,13 @@
 import styled from "styled-components";
 
 export const HeaderNavStyle = styled.nav`
-  background-color: #ff4800f9;
+  background-color: #fe5c5c;
   padding: 25px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 10px;
+  border-radius: 10px;
 
   a {
     color: black;
