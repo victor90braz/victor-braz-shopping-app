@@ -7,19 +7,23 @@ export function Header() {
     <header
       style={{
         padding: "15px",
-        margin: "15px",
+        margin: "16px",
         border: "2px solid black",
         display: "flex",
         justifyContent: "flex-start",
         fontSize: "1.2em",
       }}
     >
-      <nav>
+      <nav
+        style={{
+          marginRight: "16px",
+        }}
+      >
         <a
           href="/"
           class={url == "/" && "active"}
           style={{
-            marginRight: "20px",
+            marginRight: "16px",
           }}
         >
           Home

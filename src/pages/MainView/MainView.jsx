@@ -3,63 +3,79 @@ import Item from "../../components/Item/Item";
 const MainView = () => {
   return (
     <div style={{ display: "grid", gridTemplateColumns: "repeat(1, 1fr)" }}>
-      <article>
+      <section
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+          alignItems: "center",
+          minHeight: "60px",
+          marginLeft: "16px",
+        }}
+      >
         <h1
           style={{
             color: "blue",
-            width: "100%",
-            marginLeft: "40px",
-            fontSize: "2em",
+            fontSize: "1.2em",
+            marginLeft: "20px",
+            border: "1px solid black",
           }}
         >
-          Shopping App
+          LIST VIEW
         </h1>
-
-        <div
+        <section
           style={{
-            width: "100%",
             display: "flex",
             flex: "row",
             justifyContent: "flex-end",
+            border: "1px solid black",
+            alignItems: "left",
+            margin: "20px 16px 16px 0",
           }}
         >
           <input
-            placeholder={"Search products..."}
-            style={{ padding: "8px", marginBottom: "8px", marginRight: "16px" }}
-          />
-        </div>
-
-        <section>
-          <div
+            placeholder={"SEARCH"}
             style={{
-              width: "100%",
-              minHeight: "80%",
-              display: "grid",
-              gridTemplateColumns: "repeat(4, 1fr)",
-              gap: "16px",
-              border: "1px solid black",
-              padding: "16px",
+              backgroundColor: "pink",
+              padding: "10px",
+              textAlign: "right",
+              width: "250px",
+              fontSize: "1.2em",
             }}
-          >
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-          </div>
+          />
         </section>
-      </article>
+      </section>
+
+      <section>
+        <div
+          style={{
+            width: "100%",
+            minHeight: "80%",
+            display: "grid",
+            gridTemplateColumns: "repeat(4, 1fr)",
+            gap: "16px",
+            border: "1px solid black",
+            padding: "16px",
+          }}
+        >
+          <Item />
+          <Item />
+          <Item />
+          <Item />
+          <Item />
+          <Item />
+          <Item />
+          <Item />
+          <Item />
+          <Item />
+          <Item />
+          <Item />
+          <Item />
+          <Item />
+          <Item />
+          <Item />
+        </div>
+      </section>
     </div>
   );
 };
