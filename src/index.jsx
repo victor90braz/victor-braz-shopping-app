@@ -1,7 +1,7 @@
 import { render } from "preact";
 import { LocationProvider, Router, Route } from "preact-iso";
 
-import { Header } from "./components/Header.jsx";
+import { Header } from "./components/Header/Header.jsx";
 import { NotFound } from "./pages/_404.jsx";
 import "./style.css";
 import MainView from "./pages/MainView/MainView.jsx";
