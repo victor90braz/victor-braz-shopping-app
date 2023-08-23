@@ -1,7 +1,13 @@
 import ItemList from "../../components/ItemList/ItemList";
+import { SearchItem } from "../../components/SearchItem/SearchItem";
 
 const MainView = () => {
-  return <ItemList />;
+  return (
+    <>
+      <SearchItem />
+      <ItemList />
+    </>
+  );
 };
 
 export default MainView;
