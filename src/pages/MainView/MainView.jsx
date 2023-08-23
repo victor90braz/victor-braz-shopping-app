@@ -10,7 +10,8 @@ const MainView = () => {
           style={{
             width: "100%",
             display: "flex",
-            justifyContent: "flex-end;",
+            flex: "row",
+            justifyContent: "flex-end",
           }}
         >
           <input
