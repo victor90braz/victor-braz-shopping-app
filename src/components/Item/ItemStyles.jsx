@@ -14,6 +14,6 @@ export const columnStyle = {
 export const imageItem = {
   maxWidth: "100%",
   height: "auto",
-  url: "../../../public/images/Apple-iPhone-12.png",
+  url: "/images/Apple-iPhone-12.png",
   alt: "google",
 };

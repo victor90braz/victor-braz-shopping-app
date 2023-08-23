@@ -9,7 +9,7 @@ const Item = () => {
       </div>
 
       <div style={columnStyle}>
-        <h2>brand</h2>
+        <h2>Brand</h2>
         <p>Model: model</p>
         <p>Price: price</p>
       </div>
