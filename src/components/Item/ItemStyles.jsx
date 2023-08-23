@@ -7,3 +7,8 @@ export const cardBodyStyle = {
   flexDirection: "column",
   alignItems: "center",
 };
+
+export const highlight = {
+  fontWeight: "bold",
+  color: "black",
+};
