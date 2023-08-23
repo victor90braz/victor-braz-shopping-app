@@ -16,7 +16,7 @@ This is a mini-application called "Shopping App" for purchasing mobile devices.
   3. TEST - Test launch
   4. LINT - Code linting
 
-- The project should be hosted on an open-source code repository (GitHub/victor90braz) https://github.com/victor90braz/victor-braz-shopping-app.git with the solution to the problem. The code should be incrementally commitable to show progress.
+- The project should be hosted on an open-source code repository (GitHub/victor90braz) https://github.com/victor90braz/victor-braz-shopping-app.git
 
 **DESCRIPTION OF VIEWS**
 
@@ -33,7 +33,6 @@ This is a mini-application called "Shopping App" for purchasing mobile devices.
 - Divided into two columns:
   1. First column displays the product image component.
   2. Second column displays product details and actions.
-- Includes a link to navigate back to the product list.
 
 **DESCRIPTION OF COMPONENTS**
 
@@ -87,7 +86,6 @@ This is a mini-application called "Shopping App" for purchasing mobile devices.
   - Product ID
   - Selected color code
   - Selected storage code
-- The response to adding a product includes the count of items in the cart, which should be displayed in the header of the application on any view.
 
 **RESOURCES**
 
