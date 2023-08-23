@@ -7,7 +7,6 @@ export function Header() {
     <header
       style={{
         padding: "15px",
-        margin: "16px",
         border: "2px solid black",
         display: "flex",
         justifyContent: "flex-start",
@@ -16,7 +15,7 @@ export function Header() {
     >
       <nav
         style={{
-          marginRight: "16px",
+          marginRight: "30px",
         }}
       >
         <a

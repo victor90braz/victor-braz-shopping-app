@@ -8,13 +8,7 @@ export const App = () => {
     <LocationProvider>
       <Header />
 
-      <main
-        style={{
-          border: "2px solid black",
-          margin: "0 15px 0 15px",
-          minHeight: "85vh",
-        }}
-      >
+      <main>
         <Router>
           <Route path="/" component={MainView} />
           <Route default component={NotFound} />
