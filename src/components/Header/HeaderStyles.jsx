@@ -9,13 +9,19 @@ export const HeaderNavStyle = styled.nav`
   margin: 10px;
   border-radius: 10px;
 
+  h1 {
+    font-size: 1.5rem;
+  }
+
   a {
     color: black;
     margin-right: 10px;
     margin-left: 16px;
     text-decoration: none;
-    font-size: 1.2rem;
     margin-left: 25px;
+    display: flex;
+    gap: 10px;
+
     &:hover {
       text-decoration: underline;
     }
