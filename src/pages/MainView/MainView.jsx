@@ -4,7 +4,16 @@ const MainView = () => {
   return (
     <div style={{ display: "grid", gridTemplateColumns: "repeat(1, 1fr)" }}>
       <article>
-        <h1 style={{ color: "blue", width: "100%" }}>Shopping App</h1>
+        <h1
+          style={{
+            color: "blue",
+            width: "100%",
+            marginLeft: "40px",
+            fontSize: "2em",
+          }}
+        >
+          Shopping App
+        </h1>
 
         <div
           style={{
