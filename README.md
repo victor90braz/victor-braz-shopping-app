@@ -18,7 +18,7 @@ This is a mini-application called "Shopping App" for purchasing mobile devices.
 
 - The project should be hosted on an open-source code repository (GitHub/victor90braz) https://github.com/victor90braz/victor-braz-shopping-app.git with the solution to the problem. The code should be incrementally commitable to show progress.
 
-**DESCRIPCION DE LAS VISTAS**
+**DESCRIPTION OF VIEWS**
 
 **PLP - Product List Page**
 
@@ -35,21 +35,21 @@ This is a mini-application called "Shopping App" for purchasing mobile devices.
   2. Second column displays product details and actions.
 - Includes a link to navigate back to the product list.
 
-**DESCRIPCION DE LOS COMPONENTES**
+**DESCRIPTION OF COMPONENTS**
 
-**Cabecera (HEADER)**
+**HEADER**
 
 - The application title or icon acts as a link to the main view.
 - Shows breadcrumbs indicating the user's location and provides links for navigation.
 - Displays the number of items added to the cart on the right side of the header.
 
-**Barra de Busqueda (SEARCH)**
+**SEARCH**
 
 - Displays an input field for user text input.
 - Users can filter products based on entered text, comparing it with Brand and Model attributes.
 - Real-time filtering triggers a search whenever the user changes search criteria.
 
-**Elemento lista (ITEM)**
+**ITEM**
 
 - Displays the following product information:
   - Image
@@ -57,11 +57,11 @@ This is a mini-application called "Shopping App" for purchasing mobile devices.
   - Model
   - Price
 
-**Imagen Producto (IMAGE)**
+**IMAGE OF PRODUCT**
 
 - Displays the product image.
 
-**Descripción Producto (DESCRIPTION)**
+**DESCRIPTION OF PRODUCT**
 
 - Displays details associated with the product, including attributes like:
   - Brand
@@ -76,7 +76,7 @@ This is a mini-application called "Shopping App" for purchasing mobile devices.
   - Dimensions
   - Weight
 
-**Acciones Producto (ACTIONS)**
+**ACTIONS**
 
 - Displays two types of selectors for adding products to the cart:
   - Storage
@@ -89,9 +89,9 @@ This is a mini-application called "Shopping App" for purchasing mobile devices.
   - Selected storage code
 - The response to adding a product includes the count of items in the cart, which should be displayed in the header of the application on any view.
 
-**RECURSOS**
+**RESOURCES**
 
-**Integración API**
+**Integration API**
 
 - API integration is required for data management.
 - The API domain is consistent for all endpoints: https://front-test-api.herokuapp.com/
