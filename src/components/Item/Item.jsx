@@ -7,7 +7,6 @@ const Item = () => {
         width: "100%",
         height: "25vh",
         border: "1px solid black",
-        padding: "8px",
       }}
     >
       item

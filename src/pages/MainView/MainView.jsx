@@ -37,10 +37,11 @@ const MainView = () => {
             placeholder={"SEARCH"}
             style={{
               backgroundColor: "pink",
-              padding: "10px",
+              padding: "2px",
               textAlign: "right",
               width: "250px",
               fontSize: "1.2em",
+              border: "1px solid pink",
             }}
           />
         </section>
