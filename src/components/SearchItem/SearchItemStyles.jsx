@@ -11,6 +11,10 @@ export const SearchItemStyle = styled.nav`
     margin-left: 25px;
   }
 
+  input {
+    text-align: right;
+  }
+
   a {
     color: white;
     margin-right: 10px;
