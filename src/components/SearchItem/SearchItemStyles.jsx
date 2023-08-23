@@ -16,7 +16,6 @@ export const SearchItemStyle = styled.nav`
 
   input {
     text-align: right;
-    width: 520px;
   }
 
   a {
