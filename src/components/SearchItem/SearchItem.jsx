@@ -1,7 +1,17 @@
 // @ts-nocheck
 import { SearchItemStyle } from "./SearchItemStyles";
 
-const SearchItem = ({ setSearchQuery }) => {
+const SearchItem = ({ products, setFilteredProducts }) => {
+  const handleSearchChange = (e) => {
+    const searchQuery = e.target.value.toLowerCase();
+    const filteredProducts = products.filter(
+      (product) =>
+        product.brand.toLowerCase().includes(searchQuery) ||
+        product.model.toLowerCase().includes(searchQuery)
+    );
+    setFilteredProducts(filteredProducts);
+  };
+
   return (
     <SearchItemStyle>
       <h2>View Items</h2>
@@ -12,7 +22,7 @@ const SearchItem = ({ setSearchQuery }) => {
           type="search"
           placeholder="Search"
           aria-label="Search"
-          onChange={(e) => setSearchQuery(e.target.value)}
+          onChange={handleSearchChange}
         />
       </div>
     </SearchItemStyle>

@@ -6,7 +6,7 @@ import { useEffect, useState } from "preact/hooks";
 
 const MainView = () => {
   const [products, setProducts] = useState([]);
-  const [searchQuery, setSearchQuery] = useState("");
+  const [filteredProducts, setFilteredProducts] = useState([]);
 
   useEffect(() => {
     const url = `https://itx-frontend-test.onrender.com/api/product/`;
@@ -15,13 +15,17 @@ const MainView = () => {
       .then((response) => response.json())
       .then((data) => {
         setProducts(data);
+        setFilteredProducts(data);
       });
   }, []);
 
   return (
     <MainViewStyles>
-      <SearchItem setSearchQuery={setSearchQuery} />
-      <ItemList products={products} searchQuery={searchQuery} />
+      <SearchItem
+        products={products}
+        setFilteredProducts={setFilteredProducts}
+      />
+      <ItemList products={filteredProducts} />
     </MainViewStyles>
   );
 };

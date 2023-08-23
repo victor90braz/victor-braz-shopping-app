@@ -2,14 +2,10 @@
 import Item from "../Item/Item";
 import { ItemListStyles } from "./ItemListStyles";
 
-const ItemList = ({ products, searchQuery }) => {
-  const filteredProducts = products.filter((product) =>
-    product.model.toLowerCase().includes(searchQuery.toLowerCase())
-  );
-
+const ItemList = ({ products }) => {
   return (
     <ItemListStyles>
-      {filteredProducts.map((product) => (
+      {products.map((product) => (
         <Item product={product} key={product.id} />
       ))}
     </ItemListStyles>
