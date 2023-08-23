@@ -1,6 +1,5 @@
 export const cardStyle = {
   width: "22rem",
-  marginTop: "20px",
 };
 
 export const cardBodyStyle = {
