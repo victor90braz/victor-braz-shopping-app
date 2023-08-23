@@ -13,6 +13,8 @@ const ItemList = () => {
       <Item />
       <Item />
       <Item />
+      <Item />
+      <Item />
     </ItemListStyles>
   );
 };

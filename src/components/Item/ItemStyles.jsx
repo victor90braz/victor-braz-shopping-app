@@ -11,17 +11,17 @@ export const ItemStyle = styled.div`
   }
 
   .card-img-top {
-    max-width: 58%;
-    margin: auto;
-    align-self: center;
-    margin-top: -16px;
+    max-width: 45%;
+    object-fit: scale-down;
+    margin: 10px;
   }
 
   .card-body {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    padding: 0;
   }
 
   p {
