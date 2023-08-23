@@ -1,26 +1,18 @@
 // @ts-nocheck
-import { useEffect, useState } from "preact/hooks";
+
 import { ItemStyle } from "./ItemStyles";
 
-const Item = () => {
-  const [product, setProduct] = useState([]);
-
-  useEffect(() => {
-    const id = "ZmGrkLRPXOTpxsU4jjAcv";
-    const url = `https://itx-frontend-test.onrender.com/api/product/${id}`;
-
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        setProduct(data);
-      });
-  }, []);
-
+const Item = ({ product }) => {
   return (
     <ItemStyle>
       <div className="card">
-        <img src={product.imgUrl} alt={product.name} className="card-img-top" />
+        <div className="image-container">
+          <img
+            src={product.imgUrl}
+            alt={product.name}
+            className="card-img-top"
+          />
+        </div>
 
         <div className="card-body">
           <h5 className="card-title">{product.brand}</h5>
