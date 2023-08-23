@@ -1,14 +1,18 @@
-export const cardStyle = {
-  width: "22rem",
-};
+import styled from "styled-components";
 
-export const cardBodyStyle = {
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-};
+export const ItemStyle = styled.div`
+  .card {
+    width: 22rem;
+  }
 
-export const highlight = {
-  fontWeight: "bold",
-  color: "black",
-};
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  p {
+    font-weight: bold;
+    color: black;
+  }
+`;
