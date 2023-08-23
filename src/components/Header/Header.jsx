@@ -9,7 +9,7 @@ export function Header() {
   return (
     <HeaderNavStyle>
       <a href="/" class={url === "/" ? "active" : ""}>
-        <FontAwesomeIcon icon={faHome} /> Home {/* Add icon */}
+        <FontAwesomeIcon icon={faHome} /> Shopping App
       </a>
     </HeaderNavStyle>
   );
