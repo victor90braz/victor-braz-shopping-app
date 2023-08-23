@@ -1,15 +1,23 @@
 import styled from "styled-components";
 
-export const HeaderContainer = styled.div`
+export const HeaderNavStyle = styled.nav`
+  background-color: red;
   padding: 15px;
   display: flex;
-  justify-content: flex-start;
-  font-size: 1.2em;
-  background-color: red;
+  justify-content: space-between;
+  align-items: center;
 
-  nav a {
+  a {
     color: white;
     margin-right: 10px;
     margin-left: 16px;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .btn {
+    color: white;
   }
 `;
