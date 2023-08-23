@@ -67,14 +67,6 @@ const MainView = () => {
           <Item />
           <Item />
           <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
         </div>
       </section>
     </div>

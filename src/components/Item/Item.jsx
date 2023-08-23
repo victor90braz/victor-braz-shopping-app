@@ -5,7 +5,7 @@ const Item = () => {
     <div
       style={{
         width: "100%",
-        height: "25vh",
+        minHeight: "34vh",
         border: "1px solid black",
       }}
     >
