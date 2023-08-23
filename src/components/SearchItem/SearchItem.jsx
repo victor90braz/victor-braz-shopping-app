@@ -4,7 +4,7 @@ import { SearchItemStyle } from "./SearchItemStyles";
 export function SearchItem() {
   return (
     <SearchItemStyle>
-      <h2>View Item</h2>
+      <h2>View Items</h2>
 
       <div className="form-inline">
         <input
