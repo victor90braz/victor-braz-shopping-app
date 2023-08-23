@@ -1,24 +1,15 @@
 // @ts-nocheck
 import Item from "../Item/Item";
 import { ItemListStyles } from "./ItemListStyles";
-import { useEffect, useState } from "preact/hooks";
 
-const ItemList = () => {
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    const url = `https://itx-frontend-test.onrender.com/api/product/`;
-
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        setProducts(data);
-      });
-  }, []);
+const ItemList = ({ products, searchQuery }) => {
+  const filteredProducts = products.filter((product) =>
+    product.model.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   return (
     <ItemListStyles>
-      {products.map((product) => (
+      {filteredProducts.map((product) => (
         <Item product={product} key={product.id} />
       ))}
     </ItemListStyles>

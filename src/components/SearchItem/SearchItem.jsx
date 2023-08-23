@@ -1,7 +1,7 @@
 // @ts-nocheck
 import { SearchItemStyle } from "./SearchItemStyles";
 
-export function SearchItem() {
+const SearchItem = ({ setSearchQuery }) => {
   return (
     <SearchItemStyle>
       <h2>View Items</h2>
@@ -12,8 +12,11 @@ export function SearchItem() {
           type="search"
           placeholder="Search"
           aria-label="Search"
+          onChange={(e) => setSearchQuery(e.target.value)}
         />
       </div>
     </SearchItemStyle>
   );
-}
+};
+
+export default SearchItem;
