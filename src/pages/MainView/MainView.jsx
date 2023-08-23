@@ -34,7 +34,7 @@ const MainView = () => {
           }}
         >
           <input
-            placeholder={"SEARCH"}
+            placeholder={"SEARCH "}
             style={{
               backgroundColor: "pink",
               padding: "2px",
@@ -59,6 +59,8 @@ const MainView = () => {
             padding: "16px",
           }}
         >
+          <Item />
+          <Item />
           <Item />
           <Item />
           <Item />
