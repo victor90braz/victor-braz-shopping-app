@@ -6,9 +6,9 @@ export function SearchItem() {
     <SearchItemStyle>
       <h2>View Item</h2>
 
-      <div class="form-inline">
+      <div className="form-inline">
         <input
-          class="form-control mr-sm-2"
+          className="form-control mr-sm-2"
           type="search"
           placeholder="Search"
           aria-label="Search"

@@ -1,18 +1,22 @@
 import styled from "styled-components";
 
 export const SearchItemStyle = styled.nav`
-  padding: 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 
   h2 {
     font-size: 1.2rem;
-    margin-left: 25px;
+    margin-left: 60px;
+  }
+
+  .form-inline {
+    margin-right: 0.4rem !important;
   }
 
   input {
     text-align: right;
+    width: 520px;
   }
 
   a {

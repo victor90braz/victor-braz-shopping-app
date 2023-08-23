@@ -1,9 +1,10 @@
+// @ts-nocheck
 import Item from "../Item/Item";
-import { itemListStyles } from "./ItemListStyles";
+import { ItemListStyles } from "./ItemListStyles";
 
 const ItemList = () => {
   return (
-    <div style={itemListStyles}>
+    <ItemListStyles>
       <Item />
       <Item />
       <Item />
@@ -12,7 +13,7 @@ const ItemList = () => {
       <Item />
       <Item />
       <Item />
-    </div>
+    </ItemListStyles>
   );
 };
 

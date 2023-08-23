@@ -10,6 +10,7 @@ const Item = () => {
           alt="google"
           className="card-img-top"
         />
+
         <div className="card-body">
           <h5 className="card-title">Brand</h5>
           <div className="card-text">

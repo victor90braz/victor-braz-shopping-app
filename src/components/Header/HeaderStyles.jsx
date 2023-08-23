@@ -1,14 +1,15 @@
 import styled from "styled-components";
 
 export const HeaderNavStyle = styled.nav`
-  background-color: red;
-  padding: 15px;
+  background-color: #ff4800f9;
+  padding: 25px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 10px;
 
   a {
-    color: white;
+    color: black;
     margin-right: 10px;
     margin-left: 16px;
     text-decoration: none;
@@ -17,9 +18,5 @@ export const HeaderNavStyle = styled.nav`
     &:hover {
       text-decoration: underline;
     }
-  }
-
-  .btn {
-    color: white;
   }
 `;
