@@ -11,10 +11,17 @@ export function Header() {
         border: "2px solid black",
         display: "flex",
         justifyContent: "flex-start",
+        fontSize: "1.2em",
       }}
     >
       <nav>
-        <a href="/" class={url == "/" && "active"}>
+        <a
+          href="/"
+          class={url == "/" && "active"}
+          style={{
+            marginRight: "20px",
+          }}
+        >
           Home
         </a>
         <a href="/404" class={url == "/404" && "active"}>
