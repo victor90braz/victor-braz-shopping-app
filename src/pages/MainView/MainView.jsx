@@ -28,8 +28,6 @@ const MainView = () => {
         setFilteredProducts={setFilteredProducts}
       />
 
-      <h1>LIST VIEW</h1>
-
       {isLoading ? (
         <div class="spinner-border text-primary" role="status">
           <span class="sr-only">Loading...</span>
