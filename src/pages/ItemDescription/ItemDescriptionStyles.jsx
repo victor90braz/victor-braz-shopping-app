@@ -35,7 +35,7 @@ export const ItemDescriptionStyles = styled.div`
     justify-content: center;
     flex-direction: column;
     height: 100%;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
 
   .list-group-item {
