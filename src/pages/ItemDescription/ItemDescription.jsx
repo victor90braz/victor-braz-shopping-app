@@ -1,6 +1,8 @@
 // @ts-nocheck
 import { useEffect, useState } from "preact/hooks";
 import { ItemDescriptionStyles } from "./ItemDescriptionStyles";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 
 const ItemDescription = () => {
   const [product, setProduct] = useState({});
@@ -21,43 +23,71 @@ const ItemDescription = () => {
   return (
     <ItemDescriptionStyles>
       {isLoading ? (
-        <div class="spinner-border text-primary" role="status">
-          <span class="sr-only">Loading...</span>
+        <div className="loading">
+          <FontAwesomeIcon icon={faSpinner} spin />
         </div>
-      ) : (
-        <div class="card" style="width: 52rem">
+      ) : product && Object.keys(product).length > 0 ? (
+        <div className="card" style="width: 52rem">
           <img
             src={product.imgUrl}
             alt={product.name}
             className="full-width-image"
           />
-          <div class="card-body">
-            <h5 class="card-title">{product.brand}</h5>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Marca: {product.brand}</li>
-              <li class="list-group-item">Modelo: {product.model}</li>
-              <li class="list-group-item">Precio: {product.price}€</li>
-              <li class="list-group-item">CPU: {product.cpu}</li>
-              <li class="list-group-item">RAM: {product.ram}</li>
-              <li class="list-group-item">Sistema Operativo: {product.os}</li>
-              <li class="list-group-item">
-                Resolución de pantalla: {product.screenResolution}
-              </li>
-              <li class="list-group-item">Batería: {product.battery}</li>
-              <li class="list-group-item">Cámaras: {product.cameras}</li>
-              <li class="list-group-item">Dimensiones: {product.dimensions}</li>
-              <li class="list-group-item">Peso: {product.weight}</li>
+          <div className="card-body">
+            <h5 className="card-title">{product.brand}</h5>
+            <ul className="list-group list-group-flush">
+              {product.brand && (
+                <li className="list-group-item">Marca: {product.brand}</li>
+              )}
+              {product.model && (
+                <li className="list-group-item">Modelo: {product.model}</li>
+              )}
+              {product.price && (
+                <li className="list-group-item">Precio: {product.price}€</li>
+              )}
+              {product.cpu && (
+                <li className="list-group-item">CPU: {product.cpu}</li>
+              )}
+              {product.ram && (
+                <li className="list-group-item">RAM: {product.ram}</li>
+              )}
+              {product.os && (
+                <li className="list-group-item">
+                  Sistema Operativo: {product.os}
+                </li>
+              )}
+              {product.screenResolution && (
+                <li className="list-group-item">
+                  Resolución de pantalla: {product.screenResolution}
+                </li>
+              )}
+              {product.battery && (
+                <li className="list-group-item">Batería: {product.battery}</li>
+              )}
+              {product.cameras && (
+                <li className="list-group-item">Cámaras: {product.cameras}</li>
+              )}
+              {product.dimensions && (
+                <li className="list-group-item">
+                  Dimensiones: {product.dimensions}
+                </li>
+              )}
+              {product.weight && (
+                <li className="list-group-item">Peso: {product.weight}</li>
+              )}
             </ul>
-            <div class="card-actions">
-              <a href="#" class="card-link">
+            <div className="card-actions">
+              <a href="#" className="card-link">
                 Action
               </a>
-              <a href="#" class="card-link">
+              <a href="#" className="card-link">
                 Action
               </a>
             </div>
           </div>
         </div>
+      ) : (
+        <div>No product data available.</div>
       )}
     </ItemDescriptionStyles>
   );
