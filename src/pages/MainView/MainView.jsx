@@ -25,6 +25,8 @@ const MainView = () => {
         products={products}
         setFilteredProducts={setFilteredProducts}
       />
+
+      <h1>LIST VIEW</h1>
       <ItemList products={filteredProducts} />
     </MainViewStyles>
   );
