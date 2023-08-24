@@ -11,6 +11,7 @@ export const ItemStyle = styled.div`
     margin-right: 0.5rem !important;
     height: 34vh;
   }
+
   .image-container {
     flex: 1;
   }
