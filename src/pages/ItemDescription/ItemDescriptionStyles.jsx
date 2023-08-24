@@ -1,11 +1,10 @@
 import styled from "styled-components";
 
 export const ItemDescriptionStyles = styled.div`
-  background-color: #10020212;
-  margin: 10px;
-  border-radius: 10px;
   display: flex;
+  align-items: center;
   justify-content: center;
+  height: 90vh;
 
   .card {
     display: flex;

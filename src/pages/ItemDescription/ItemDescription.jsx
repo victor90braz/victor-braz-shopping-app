@@ -1,11 +1,9 @@
 // @ts-nocheck
 import { useEffect, useState } from "preact/hooks";
 import { ItemDescriptionStyles } from "./ItemDescriptionStyles";
-import { ItemImage } from "../../components/ItemImage/ItemImage";
 
 const ItemDescription = () => {
   const [product, setProduct] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const id = "ZmGrkLRPXOTpxsU4jjAcv";
@@ -15,7 +13,6 @@ const ItemDescription = () => {
       .then((response) => response.json())
       .then((data) => {
         setProduct(data);
-        setIsLoading(false);
       });
   }, []);
 
