@@ -14,9 +14,6 @@ export const ItemStyle = styled.div`
   .image-container {
     flex: 1;
   }
-  .card-img-top {
-    margin: 10px;
-  }
 
   .card-body {
     flex: 1.5;

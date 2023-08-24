@@ -1,5 +1,6 @@
 // @ts-nocheck
 
+import { ItemImage } from "../ItemImage/ItemImage";
 import { ItemStyle } from "./ItemStyles";
 
 const Item = ({ product }) => {
@@ -10,7 +11,7 @@ const Item = ({ product }) => {
     <ItemStyle>
       <div className="card">
         <div className="image-container">
-          <img
+          <ItemImage
             src={product.imgUrl}
             alt={product.name}
             className="card-img-top"
