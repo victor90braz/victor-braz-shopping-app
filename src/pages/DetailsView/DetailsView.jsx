@@ -1,10 +1,10 @@
 // @ts-nocheck
 
 import { useEffect, useState } from "preact/hooks";
-import { DetailViewStyles } from "./DetailViewStyles";
+import { DetailsViewStyles } from "./DetailsViewStyles";
 import ItemDescription from "../../components/ItemDescription/ItemDescription";
 
-const DetailView = () => {
+const DetailsView = () => {
   const [product, setProduct] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
@@ -21,19 +21,19 @@ const DetailView = () => {
   }, []);
 
   return (
-    <DetailViewStyles>
+    <DetailsViewStyles>
       {isLoading ? (
         <div className="spinner-border text-primary" role="status">
           <span className="sr-only">Loading...</span>
         </div>
       ) : (
         <>
-          <h2>Detail View</h2>
+          <h2>Details View</h2>
           <ItemDescription product={product} />
         </>
       )}
-    </DetailViewStyles>
+    </DetailsViewStyles>
   );
 };
 
-export default DetailView;
+export default DetailsView;

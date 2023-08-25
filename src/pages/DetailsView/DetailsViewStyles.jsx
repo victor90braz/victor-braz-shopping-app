@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const DetailViewStyles = styled.section`
+export const DetailsViewStyles = styled.section`
   padding: 30px;
   background-color: #10020212;
   margin: 10px;
