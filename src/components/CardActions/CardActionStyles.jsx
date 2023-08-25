@@ -9,9 +9,14 @@ export const CardActionsStyles = styled.div`
   .container-card-actions {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     gap: 10px;
+
+    @media (max-width: 715px) {
+      justify-content: center;
+    }
   }
 
   select {
