@@ -55,7 +55,6 @@ export const ItemDescriptionStyles = styled.div`
 
   .card-actions,
   .card-body {
-    min-width: 424px;
     padding: 20px;
   }
 
