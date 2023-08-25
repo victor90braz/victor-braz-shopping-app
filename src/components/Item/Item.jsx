@@ -27,12 +27,15 @@ const Item = ({ product }) => {
             <p>Model: {product.model}</p>
             <p>Price: {priceContent}</p>
           </div>
-          <button className="btn btn-primary" onClick={handleDetailClick}>
-            Detail
-          </button>
-          <button className="btn btn-primary" onClick={handleDetailClick}>
-            Actions
-          </button>
+
+          <div className="action-container">
+              <button className="btn btn-primary" onClick={handleDetailClick}>
+              Detail
+            </button>
+            <button className="btn btn-primary" onClick={handleDetailClick}>
+              Actions
+            </button>
+          </div>
         </div>
       </div>
     </ItemStyle>

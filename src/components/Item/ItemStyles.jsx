@@ -32,4 +32,9 @@ export const ItemStyle = styled.div`
     color: black;
     font-size: 0.8rem;
   }
+
+  .action-container {
+    display: flex;
+    gap: 10px;
+  }
 `;
