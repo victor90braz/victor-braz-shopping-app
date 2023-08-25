@@ -28,47 +28,70 @@ const ItemDescription = ({ product }) => {
             <div className="card-body">
               <ul className="list-group list-group-flush">
                 {product.brand && (
-                  <li className="list-group-item">Brand: {product.brand}</li>
+                  <li className="list-group-item">
+                    <span>Brand: </span>
+                    {product.brand}
+                  </li>
                 )}
                 {product.model && (
-                  <li className="list-group-item">Model: {product.model}</li>
+                  <li className="list-group-item">
+                    <span>Model: </span>
+                    {product.model}
+                  </li>
                 )}
                 {product.price && (
-                  <li className="list-group-item">Price: {product.price}€</li>
+                  <li className="list-group-item">
+                    <span>Price: </span>
+                    {product.price}€
+                  </li>
                 )}
                 {product.cpu && (
-                  <li className="list-group-item">CPU: {product.cpu}</li>
+                  <li className="list-group-item">
+                    <span>CPU: </span>
+                    {product.cpu}
+                  </li>
                 )}
                 {product.ram && (
-                  <li className="list-group-item">RAM: {product.ram}</li>
+                  <li className="list-group-item">
+                    <span>RAM: </span>
+                    {product.ram}
+                  </li>
                 )}
                 {product.os && (
                   <li className="list-group-item">
-                    Operating System: {product.os}
+                    <span>Operating System: </span>
+                    {product.os}
                   </li>
                 )}
                 {product.screenResolution && (
                   <li className="list-group-item">
-                    Screen Resolution: {product.screenResolution}
+                    <span>Screen Resolution: </span>
+                    {product.screenResolution}
                   </li>
                 )}
                 {product.battery && (
                   <li className="list-group-item">
-                    Battery: {product.battery}
+                    <span>Battery: </span>
+                    {product.battery}
                   </li>
                 )}
                 {product.cameras && (
                   <li className="list-group-item">
-                    Cameras: {product.cameras}
+                    <span>Cameras: </span>
+                    {product.cameras}
                   </li>
                 )}
                 {product.dimensions && (
                   <li className="list-group-item">
-                    Dimensions: {product.dimensions}
+                    <span>Dimensions: </span>
+                    {product.dimensions}
                   </li>
                 )}
                 {product.weight && (
-                  <li className="list-group-item">Weight: {product.weight}</li>
+                  <li className="list-group-item">
+                    <span>Weight: </span>
+                    {product.weight}
+                  </li>
                 )}
               </ul>
             </div>
@@ -95,7 +118,9 @@ const ItemDescription = ({ product }) => {
                 </select>
               </div>
               <div className="container-actions">
-                <button onClick={handleAddToCart}>Add to Cart</button>
+                <button className="button-style" onClick={handleAddToCart}>
+                  Add to Cart
+                </button>
                 <p>Products in Cart: {cartItemCount}</p>
               </div>
             </div>
