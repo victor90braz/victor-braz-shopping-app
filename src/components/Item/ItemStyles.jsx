@@ -37,4 +37,9 @@ export const ItemStyle = styled.div`
     display: flex;
     gap: 10px;
   }
+
+  .btn-primary {
+    font-size: 0.7rem; /* Adjust the font size */
+    padding: 0.3rem 0.6rem; /* Adjust padding as needed */
+  }
 `;

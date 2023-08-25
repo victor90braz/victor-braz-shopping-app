@@ -10,6 +10,10 @@ const Item = ({ product }) => {
     window.location.href = `/details/${product.id}`;
   };
 
+  const handleActionCart = () => {
+    window.location.href = `/cart/${product.id}`;
+  };
+
   return (
     <ItemStyle>
       <div className="card">
@@ -30,10 +34,10 @@ const Item = ({ product }) => {
 
           <div className="action-container">
             <button className="btn btn-primary" onClick={handleDetailClick}>
-              Detail
+              Description
             </button>
-            <button className="btn btn-primary" onClick={handleDetailClick}>
-              Actions
+            <button className="btn btn-primary" onClick={handleActionCart}>
+              Go to cart
             </button>
           </div>
         </div>
