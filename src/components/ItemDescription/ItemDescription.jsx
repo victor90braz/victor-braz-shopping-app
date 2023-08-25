@@ -2,7 +2,7 @@
 import { useState } from "preact/hooks";
 import { ItemDescriptionStyles } from "./ItemDescriptionStyles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartPlus, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
 const ItemDescription = ({ product }) => {
   const [selectedStorage, setSelectedStorage] = useState("defaultStorage");
