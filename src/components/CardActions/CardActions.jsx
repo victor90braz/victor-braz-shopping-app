@@ -4,15 +4,32 @@ import { useState } from "preact/hooks";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import FavoritesItems from "../FavoritesItems/FavoritesItems";
 
 const CardActions = ({ product }) => {
   const [selectedStorage, setSelectedStorage] = useState("defaultStorage");
   const [selectedColor, setSelectedColor] = useState("defaultColor");
   const [cartItemCount, setCartItemCount] = useState(0);
+  const [favoritesItems, setFavoritesItems] = useState([]);
 
   const handleAddToCart = () => {
-    const responseFromAPI = { cartItemCount: 5 };
+    console.log("Selected Storage:", selectedStorage);
+    console.log("Selected Color:", selectedColor);
+    console.log("Id:", product.id);
+    console.log("Brand:", product.brand);
+
+    const newItem = {
+      selectedStorage,
+      selectedColor,
+      id: product.id,
+      brand: product.brand,
+    };
+
+    setFavoritesItems((prevFavoritesItems) => [...prevFavoritesItems, newItem]);
+
+    const responseFromAPI = { cartItemCount: 0 };
     setCartItemCount(responseFromAPI.cartItemCount);
+    setCartItemCount(cartItemCount + 1);
   };
 
   const renderStorageOptions = () => {
@@ -20,7 +37,7 @@ const CardActions = ({ product }) => {
       <>
         <option value="defaultStorage">Select Storage</option>
         {product.options.storages.map((storageOption) => (
-          <option key={storageOption.code} value={storageOption.code}>
+          <option key={storageOption.name} value={storageOption.name}>
             {storageOption.name}
           </option>
         ))}
@@ -51,7 +68,10 @@ const CardActions = ({ product }) => {
         <div className="selected-storage">
           <select
             value={selectedStorage}
-            onChange={(e) => setSelectedStorage(e.target.value)}
+            onChange={(e) => {
+              console.log(e.target);
+              setSelectedStorage(e.target.value);
+            }}
           >
             {renderStorageOptions()}
           </select>
@@ -60,14 +80,26 @@ const CardActions = ({ product }) => {
         <div className="selected-color">
           <select
             value={selectedColor}
-            onChange={(e) => setSelectedColor(e.target.value)}
+            onChange={(e) => {
+              setSelectedColor(e.target.value);
+            }}
           >
             {renderColorOptions()}
           </select>
         </div>
 
         <div className="cart">
-          <button className="button-style" onClick={handleAddToCart}>
+          <button
+            className="button-style"
+            onClick={() =>
+              handleAddToCart(
+                selectedStorage,
+                selectedColor,
+                product.id,
+                product.brand
+              )
+            }
+          >
             ADD BAG
           </button>
         </div>
@@ -79,6 +111,8 @@ const CardActions = ({ product }) => {
         </div>
         <div className="cart-count">{cartItemCount}</div>
       </div>
+
+      <FavoritesItems favoritesItems={favoritesItems} />
 
       <button className="btn btn-primary" onClick={handleBackPreviousPage}>
         <FontAwesomeIcon icon={faArrowLeft} /> Back
