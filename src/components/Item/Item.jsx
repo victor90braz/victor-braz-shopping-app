@@ -30,6 +30,9 @@ const Item = ({ product }) => {
           <button className="btn btn-primary" onClick={handleDetailClick}>
             Detail
           </button>
+          <button className="btn btn-primary" onClick={handleDetailClick}>
+            Actions
+          </button>
         </div>
       </div>
     </ItemStyle>
