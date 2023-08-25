@@ -32,11 +32,17 @@ const DetailsView = ({ id }) => {
         </div>
       ) : (
         <>
-          <h2>Details View</h2>
+          <div className="header">
+            <h2>Details View</h2>
+            <button
+              className="btn btn-primary"
+              onClick={handleBackPreviousPage}
+            >
+              <FontAwesomeIcon icon={faArrowLeft} /> Back
+            </button>
+          </div>
+
           <ItemDescription product={product} />
-          <button className="btn btn-primary" onClick={handleBackPreviousPage}>
-            <FontAwesomeIcon icon={faArrowLeft} /> Back
-          </button>
         </>
       )}
     </DetailsViewStyles>

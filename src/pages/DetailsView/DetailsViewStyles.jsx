@@ -14,6 +14,13 @@ export const DetailsViewStyles = styled.section`
     height: 100vh;
   }
 
+  .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+  }
+
   h2 {
     font-size: 1.2rem;
     margin-left: 60px;

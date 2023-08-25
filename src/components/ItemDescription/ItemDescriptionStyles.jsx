@@ -7,7 +7,7 @@ export const ItemDescriptionStyles = styled.div`
   justify-content: center;
 
   .card {
-    width: 52rem;
+    width: 46rem;
     padding: 15px;
     display: flex;
     margin: 10px;
@@ -46,16 +46,10 @@ export const ItemDescriptionStyles = styled.div`
     justify-content: center;
     flex-direction: column;
     height: 100%;
-    font-size: 0.9rem;
   }
 
   .list-group-item {
     padding: 0;
-  }
-
-  .card-actions,
-  .card-body {
-    padding: 20px;
   }
 
   .card-actions {
@@ -65,9 +59,9 @@ export const ItemDescriptionStyles = styled.div`
 
   .container-actions {
     display: flex;
-    flex-direction: row;
-    gap: 10px;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
   }
 
   .container-actions button {

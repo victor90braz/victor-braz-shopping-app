@@ -1,7 +1,23 @@
 // @ts-nocheck
+import { useState } from "preact/hooks";
 import { ItemDescriptionStyles } from "./ItemDescriptionStyles";
 
 const ItemDescription = ({ product }) => {
+  const [selectedStorage, setSelectedStorage] = useState("defaultStorage"); // Cambia "defaultStorage" por la opción predeterminada si es diferente
+  const [selectedColor, setSelectedColor] = useState("defaultColor"); // Cambia "defaultColor" por la opción predeterminada si es diferente
+  const [cartItemCount, setCartItemCount] = useState(0);
+
+  const handleAddToCart = () => {
+    // Aquí deberías hacer la llamada al API para agregar el producto a la cesta
+    // Usarías selectedStorage y selectedColor para enviar la información necesaria
+
+    // Supongamos que obtienes el número de productos en la cesta como respuesta del API
+    const responseFromAPI = { cartItemCount: 5 }; // Ejemplo de respuesta del API
+
+    // Actualizar el contador de productos en la cesta con la respuesta del API
+    setCartItemCount(responseFromAPI.cartItemCount);
+  };
+
   return (
     <ItemDescriptionStyles>
       {product && Object.keys(product).length > 0 ? (
@@ -65,16 +81,34 @@ const ItemDescription = ({ product }) => {
 
             <div className="card-actions">
               <div className="container-actions">
-                <button>Delete</button>
-                <button>Delete</button>
-                <button>Delete</button>
+                <select
+                  value={selectedStorage}
+                  onChange={(e) => setSelectedStorage(e.target.value)}
+                >
+                  <option value="defaultStorage">
+                    Selecciona Almacenamiento
+                  </option>
+                  <option value="storageOption1">
+                    Opción de Almacenamiento 1
+                  </option>
+                  <option value="storageOption2">
+                    Opción de Almacenamiento 2
+                  </option>
+                </select>
               </div>
               <div className="container-actions">
-                <button>Delete</button>
-                <button>Delete</button>
+                <select
+                  value={selectedColor}
+                  onChange={(e) => setSelectedColor(e.target.value)}
+                >
+                  <option value="defaultColor">Selecciona Color</option>
+                  <option value="colorOption1">Opción de Color 1</option>
+                  <option value="colorOption2">Opción de Color 2</option>
+                </select>
               </div>
               <div className="container-actions">
-                <button>Delete</button>
+                <button onClick={handleAddToCart}>Añadir a la Cesta</button>
+                <p>Productos en la cesta: {cartItemCount}</p>
               </div>
             </div>
           </div>
