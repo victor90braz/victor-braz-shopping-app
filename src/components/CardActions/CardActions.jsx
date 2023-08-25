@@ -3,6 +3,7 @@ import { CardActionsStyles } from "./CardActionStyles";
 import { useState } from "preact/hooks";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 const CardActions = ({ product }) => {
   const [selectedStorage, setSelectedStorage] = useState("defaultStorage");
@@ -40,10 +41,14 @@ const CardActions = ({ product }) => {
     );
   };
 
+  const handleBackPreviousPage = () => {
+    window.location.href = `/`;
+  };
+
   return (
     <CardActionsStyles>
-      <div className="card-actions">
-        <div className="container-actions">
+      <div className="container-card-actions">
+        <div className="selected-storage">
           <select
             value={selectedStorage}
             onChange={(e) => setSelectedStorage(e.target.value)}
@@ -51,7 +56,8 @@ const CardActions = ({ product }) => {
             {renderStorageOptions()}
           </select>
         </div>
-        <div className="container-actions">
+
+        <div className="selected-color">
           <select
             value={selectedColor}
             onChange={(e) => setSelectedColor(e.target.value)}
@@ -59,18 +65,24 @@ const CardActions = ({ product }) => {
             {renderColorOptions()}
           </select>
         </div>
-        <div className="container-actions">
+
+        <div className="cart">
           <button className="button-style" onClick={handleAddToCart}>
             Add to Cart
           </button>
-          <div className="cart-container">
-            <div className="cart-icon">
-              <FontAwesomeIcon icon={faShoppingCart} />
-            </div>
-            <div className="cart-count">{cartItemCount}</div>
-          </div>
         </div>
       </div>
+
+      <div className="cart-container">
+        <div className="cart-icon">
+          <FontAwesomeIcon icon={faShoppingCart} />
+        </div>
+        <div className="cart-count">{cartItemCount}</div>
+      </div>
+
+      <button className="btn btn-primary" onClick={handleBackPreviousPage}>
+        <FontAwesomeIcon icon={faArrowLeft} /> Back
+      </button>
     </CardActionsStyles>
   );
 };

@@ -5,6 +5,7 @@ export const ItemDescriptionStyles = styled.div`
   height: 100%;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 
   .card {
     width: 60rem;
@@ -41,15 +42,6 @@ export const ItemDescriptionStyles = styled.div`
     align-items: center;
     justify-content: center;
     flex-direction: column;
-  }
-
-  .card-body {
-    flex: 1.5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    height: 100%;
   }
 
   .list-group-item {
