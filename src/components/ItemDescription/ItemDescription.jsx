@@ -1,32 +1,10 @@
 // @ts-nocheck
-import { useEffect, useState } from "preact/hooks";
 import { ItemDescriptionStyles } from "./ItemDescriptionStyles";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 
-const ItemDescription = () => {
-  const [product, setProduct] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const id = "ZmGrkLRPXOTpxsU4jjAcv";
-    const url = `https://itx-frontend-test.onrender.com/api/product/${id}`;
-
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        setProduct(data);
-        setIsLoading(false);
-      });
-  }, []);
-
+const ItemDescription = ({ product }) => {
   return (
     <ItemDescriptionStyles>
-      {isLoading ? (
-        <div className="loading">
-          <FontAwesomeIcon icon={faSpinner} spin />
-        </div>
-      ) : product && Object.keys(product).length > 0 ? (
+      {product && Object.keys(product).length > 0 ? (
         <div className="card">
           <div className="container-image">
             <img
