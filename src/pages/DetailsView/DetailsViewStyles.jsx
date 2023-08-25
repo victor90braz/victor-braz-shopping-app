@@ -19,4 +19,19 @@ export const DetailsViewStyles = styled.section`
     margin-left: 60px;
     width: 100%;
   }
+
+  .btn-primary {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+
+  .btn-primary .svg-inline--fa {
+    margin-right: 8px;
+  }
 `;

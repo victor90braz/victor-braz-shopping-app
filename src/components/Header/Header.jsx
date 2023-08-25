@@ -1,8 +1,8 @@
 // @ts-nocheck
 import { useLocation } from "preact-iso";
 import { HeaderNavStyle } from "./HeaderStyles";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Import FontAwesomeIcon
-import { faHome } from "@fortawesome/free-solid-svg-icons"; // Import the home icon
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHome } from "@fortawesome/free-solid-svg-icons";
 
 export function Header() {
   const { url } = useLocation();

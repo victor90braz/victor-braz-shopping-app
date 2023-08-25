@@ -29,7 +29,7 @@ const Item = ({ product }) => {
           </div>
 
           <div className="action-container">
-              <button className="btn btn-primary" onClick={handleDetailClick}>
+            <button className="btn btn-primary" onClick={handleDetailClick}>
               Detail
             </button>
             <button className="btn btn-primary" onClick={handleDetailClick}>
