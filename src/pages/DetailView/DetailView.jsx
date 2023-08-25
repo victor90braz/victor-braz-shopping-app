@@ -22,13 +22,15 @@ const DetailView = () => {
 
   return (
     <DetailViewStyles>
-      <h2>Detail View</h2>
       {isLoading ? (
         <div className="spinner-border text-primary" role="status">
           <span className="sr-only">Loading...</span>
         </div>
       ) : (
-        <ItemDescription product={product} />
+        <>
+          <h2>Detail View</h2>
+          <ItemDescription product={product} />
+        </>
       )}
     </DetailViewStyles>
   );
