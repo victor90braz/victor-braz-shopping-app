@@ -1,6 +1,8 @@
 // @ts-nocheck
 import { useState } from "preact/hooks";
 import { ItemDescriptionStyles } from "./ItemDescriptionStyles";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartPlus, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
 const ItemDescription = ({ product }) => {
   const [selectedStorage, setSelectedStorage] = useState("defaultStorage");
@@ -121,7 +123,12 @@ const ItemDescription = ({ product }) => {
                 <button className="button-style" onClick={handleAddToCart}>
                   Add to Cart
                 </button>
-                <p>Products in Cart: {cartItemCount}</p>
+                <div className="cart-container">
+                  <div className="cart-icon">
+                    <FontAwesomeIcon icon={faShoppingCart} />
+                  </div>
+                  <div className="cart-count">{cartItemCount}</div>
+                </div>
               </div>
             </div>
           </div>

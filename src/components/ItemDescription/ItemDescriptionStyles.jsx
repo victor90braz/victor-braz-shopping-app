@@ -86,4 +86,18 @@ export const ItemDescriptionStyles = styled.div`
   .button-style:hover {
     background-color: #0056b3;
   }
+
+  .cart-container {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .cart-icon {
+    margin-right: 10px;
+  }
+
+  .cart-count {
+    font-size: 1rem;
+    font-weight: 700;
+  }
 `;
