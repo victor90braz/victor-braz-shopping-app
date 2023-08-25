@@ -34,10 +34,10 @@ const Item = ({ product }) => {
 
           <div className="action-container">
             <button className="btn btn-primary" onClick={handleDetailClick}>
-              Description
+              DETAILS
             </button>
             <button className="btn btn-primary" onClick={handleActionCart}>
-              Go to cart
+              ADD BAG
             </button>
           </div>
         </div>

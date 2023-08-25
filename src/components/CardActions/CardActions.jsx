@@ -68,7 +68,7 @@ const CardActions = ({ product }) => {
 
         <div className="cart">
           <button className="button-style" onClick={handleAddToCart}>
-            Add to Cart
+            ADD BAG
           </button>
         </div>
       </div>
