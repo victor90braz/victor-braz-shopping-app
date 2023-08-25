@@ -3,18 +3,12 @@ import { useState } from "preact/hooks";
 import { ItemDescriptionStyles } from "./ItemDescriptionStyles";
 
 const ItemDescription = ({ product }) => {
-  const [selectedStorage, setSelectedStorage] = useState("defaultStorage"); // Cambia "defaultStorage" por la opción predeterminada si es diferente
-  const [selectedColor, setSelectedColor] = useState("defaultColor"); // Cambia "defaultColor" por la opción predeterminada si es diferente
+  const [selectedStorage, setSelectedStorage] = useState("defaultStorage");
+  const [selectedColor, setSelectedColor] = useState("defaultColor");
   const [cartItemCount, setCartItemCount] = useState(0);
 
   const handleAddToCart = () => {
-    // Aquí deberías hacer la llamada al API para agregar el producto a la cesta
-    // Usarías selectedStorage y selectedColor para enviar la información necesaria
-
-    // Supongamos que obtienes el número de productos en la cesta como respuesta del API
-    const responseFromAPI = { cartItemCount: 5 }; // Ejemplo de respuesta del API
-
-    // Actualizar el contador de productos en la cesta con la respuesta del API
+    const responseFromAPI = { cartItemCount: 5 };
     setCartItemCount(responseFromAPI.cartItemCount);
   };
 
@@ -34,13 +28,13 @@ const ItemDescription = ({ product }) => {
             <div className="card-body">
               <ul className="list-group list-group-flush">
                 {product.brand && (
-                  <li className="list-group-item">Marca: {product.brand}</li>
+                  <li className="list-group-item">Brand: {product.brand}</li>
                 )}
                 {product.model && (
-                  <li className="list-group-item">Modelo: {product.model}</li>
+                  <li className="list-group-item">Model: {product.model}</li>
                 )}
                 {product.price && (
-                  <li className="list-group-item">Precio: {product.price}€</li>
+                  <li className="list-group-item">Price: {product.price}€</li>
                 )}
                 {product.cpu && (
                   <li className="list-group-item">CPU: {product.cpu}</li>
@@ -50,31 +44,31 @@ const ItemDescription = ({ product }) => {
                 )}
                 {product.os && (
                   <li className="list-group-item">
-                    Sistema Operativo: {product.os}
+                    Operating System: {product.os}
                   </li>
                 )}
                 {product.screenResolution && (
                   <li className="list-group-item">
-                    Resolución de pantalla: {product.screenResolution}
+                    Screen Resolution: {product.screenResolution}
                   </li>
                 )}
                 {product.battery && (
                   <li className="list-group-item">
-                    Batería: {product.battery}
+                    Battery: {product.battery}
                   </li>
                 )}
                 {product.cameras && (
                   <li className="list-group-item">
-                    Cámaras: {product.cameras}
+                    Cameras: {product.cameras}
                   </li>
                 )}
                 {product.dimensions && (
                   <li className="list-group-item">
-                    Dimensiones: {product.dimensions}
+                    Dimensions: {product.dimensions}
                   </li>
                 )}
                 {product.weight && (
-                  <li className="list-group-item">Peso: {product.weight}</li>
+                  <li className="list-group-item">Weight: {product.weight}</li>
                 )}
               </ul>
             </div>
@@ -85,15 +79,9 @@ const ItemDescription = ({ product }) => {
                   value={selectedStorage}
                   onChange={(e) => setSelectedStorage(e.target.value)}
                 >
-                  <option value="defaultStorage">
-                    Selecciona Almacenamiento
-                  </option>
-                  <option value="storageOption1">
-                    Opción de Almacenamiento 1
-                  </option>
-                  <option value="storageOption2">
-                    Opción de Almacenamiento 2
-                  </option>
+                  <option value="defaultStorage">Select Storage</option>
+                  <option value="storageOption1">Storage Option 1</option>
+                  <option value="storageOption2">Storage Option 2</option>
                 </select>
               </div>
               <div className="container-actions">
@@ -101,14 +89,14 @@ const ItemDescription = ({ product }) => {
                   value={selectedColor}
                   onChange={(e) => setSelectedColor(e.target.value)}
                 >
-                  <option value="defaultColor">Selecciona Color</option>
-                  <option value="colorOption1">Opción de Color 1</option>
-                  <option value="colorOption2">Opción de Color 2</option>
+                  <option value="defaultColor">Select Color</option>
+                  <option value="colorOption1">Color Option 1</option>
+                  <option value="colorOption2">Color Option 2</option>
                 </select>
               </div>
               <div className="container-actions">
-                <button onClick={handleAddToCart}>Añadir a la Cesta</button>
-                <p>Productos en la cesta: {cartItemCount}</p>
+                <button onClick={handleAddToCart}>Add to Cart</button>
+                <p>Products in Cart: {cartItemCount}</p>
               </div>
             </div>
           </div>

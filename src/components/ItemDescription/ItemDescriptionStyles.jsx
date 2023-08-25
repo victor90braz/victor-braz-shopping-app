@@ -7,7 +7,7 @@ export const ItemDescriptionStyles = styled.div`
   justify-content: center;
 
   .card {
-    width: 46rem;
+    width: 60rem;
     padding: 15px;
     display: flex;
     margin: 10px;
