@@ -4,7 +4,7 @@ import { useState } from "preact/hooks";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
-const CardActions = () => {
+const CardActions = ({ product }) => {
   const [selectedStorage, setSelectedStorage] = useState("defaultStorage");
   const [selectedColor, setSelectedColor] = useState("defaultColor");
   const [cartItemCount, setCartItemCount] = useState(0);
@@ -12,6 +12,32 @@ const CardActions = () => {
   const handleAddToCart = () => {
     const responseFromAPI = { cartItemCount: 5 };
     setCartItemCount(responseFromAPI.cartItemCount);
+  };
+
+  const renderStorageOptions = () => {
+    return (
+      <>
+        <option value="defaultStorage">Select Storage</option>
+        {product.options.storages.map((storageOption) => (
+          <option key={storageOption.code} value={storageOption.code}>
+            {storageOption.name}
+          </option>
+        ))}
+      </>
+    );
+  };
+
+  const renderColorOptions = () => {
+    return (
+      <>
+        <option value="defaultColor">Select Color</option>
+        {product.options.colors.map((colorOption) => (
+          <option key={colorOption.code} value={colorOption.code}>
+            {colorOption.name}
+          </option>
+        ))}
+      </>
+    );
   };
 
   return (
@@ -22,10 +48,7 @@ const CardActions = () => {
             value={selectedStorage}
             onChange={(e) => setSelectedStorage(e.target.value)}
           >
-            <option value="defaultStorage">Select Storage</option>
-            <option value="storageOption1">16GB Storage</option>
-            <option value="storageOption2">32GB Storage</option>
-            <option value="storageOption3">64GB Storage</option>
+            {renderStorageOptions()}
           </select>
         </div>
         <div className="container-actions">
@@ -33,10 +56,7 @@ const CardActions = () => {
             value={selectedColor}
             onChange={(e) => setSelectedColor(e.target.value)}
           >
-            <option value="defaultColor">Select Color</option>
-            <option value="colorOption1">Red</option>
-            <option value="colorOption2">Blue</option>
-            <option value="colorOption3">Green</option>
+            {renderColorOptions()}
           </select>
         </div>
         <div className="container-actions">

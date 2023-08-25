@@ -87,7 +87,7 @@ const ItemDescription = ({ product }) => {
               </ul>
             </div>
 
-            <CardActions />
+            <CardActions product={product} />
           </div>
         </div>
       ) : (
