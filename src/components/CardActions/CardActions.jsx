@@ -23,8 +23,9 @@ const CardActions = () => {
             onChange={(e) => setSelectedStorage(e.target.value)}
           >
             <option value="defaultStorage">Select Storage</option>
-            <option value="storageOption1">Storage Option 1</option>
-            <option value="storageOption2">Storage Option 2</option>
+            <option value="storageOption1">16GB Storage</option>
+            <option value="storageOption2">32GB Storage</option>
+            <option value="storageOption3">64GB Storage</option>
           </select>
         </div>
         <div className="container-actions">
@@ -33,8 +34,9 @@ const CardActions = () => {
             onChange={(e) => setSelectedColor(e.target.value)}
           >
             <option value="defaultColor">Select Color</option>
-            <option value="colorOption1">Color Option 1</option>
-            <option value="colorOption2">Color Option 2</option>
+            <option value="colorOption1">Red</option>
+            <option value="colorOption2">Blue</option>
+            <option value="colorOption3">Green</option>
           </select>
         </div>
         <div className="container-actions">
