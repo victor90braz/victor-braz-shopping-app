@@ -1,11 +1,14 @@
 // @ts-nocheck
-
 import { ItemImage } from "../ItemImage/ItemImage";
 import { ItemStyle } from "./ItemStyles";
 
 const Item = ({ product }) => {
   const priceContent =
-    product.price == 0 ? "Not Available" : `${product.price}€`;
+    product.price === 0 ? "Not Available" : `${product.price}€`;
+
+  const handleDetailClick = () => {
+    window.location.href = `/details/${product.id}`;
+  };
 
   return (
     <ItemStyle>
@@ -24,9 +27,9 @@ const Item = ({ product }) => {
             <p>Model: {product.model}</p>
             <p>Price: {priceContent}</p>
           </div>
-          <a href="#" className="btn btn-primary">
+          <button className="btn btn-primary" onClick={handleDetailClick}>
             Detail
-          </a>
+          </button>
         </div>
       </div>
     </ItemStyle>

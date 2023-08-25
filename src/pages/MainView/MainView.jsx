@@ -33,7 +33,16 @@ const MainView = () => {
           <span class="sr-only">Loading...</span>
         </div>
       ) : (
-        <ItemList products={filteredProducts} />
+        <>
+          {filteredProducts.map((product) => (
+            <div key={product.id}>
+              <a href={`/details/${product.id}`}>
+                <p>{product.name}</p>
+              </a>
+            </div>
+          ))}
+          <ItemList products={filteredProducts} />
+        </>
       )}
     </MainViewStyles>
   );
