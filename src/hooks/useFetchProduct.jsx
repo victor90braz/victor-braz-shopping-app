@@ -5,7 +5,7 @@ export const useFetchProduct = (id, isList) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const baseUrl = import.meta.env.SHOPPING_APP_API_BASE_URL;
+    const baseUrl = import.meta.env.VITE_SHOPPING_APP_API_BASE_URL;
 
     const url = isList ? `${baseUrl}product/` : `${baseUrl}product/${id}`;
 
