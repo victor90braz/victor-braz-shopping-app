@@ -5,6 +5,7 @@ import { faShoppingCart, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { Modal } from "react-bootstrap";
 import FavoritesItems from "../../pages/FavoritesItems/FavoritesItems";
 import { CardActionsStyles } from "./CardActionStyles";
+import { correctAction, wrongAction } from "../../modal/modals";
 
 const CardActions = ({ product }) => {
   const [selectedStorage, setSelectedStorage] = useState("defaultStorage");
@@ -18,7 +19,9 @@ const CardActions = ({ product }) => {
       selectedStorage === "defaultStorage" ||
       selectedColor === "defaultColor"
     ) {
-      alert("Please select storage and color before adding to cart.");
+      wrongAction(
+        "Please select both storage and color before adding to cart."
+      );
       return;
     }
 
@@ -31,6 +34,7 @@ const CardActions = ({ product }) => {
 
     setFavoritesItems((prevFavoritesItems) => [...prevFavoritesItems, newItem]);
     setCartItemCount(cartItemCount + 1);
+    correctAction("Great! The product has been added to your cart.");
   };
 
   const handleBackPreviousPage = () => {
