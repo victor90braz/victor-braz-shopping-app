@@ -1,7 +1,6 @@
 // @ts-nocheck
-import { h } from "preact";
-import { FavoritesItemsStyles } from "./FavoritesItemsStyles";
 import FavoriteItem from "../../components/FavoriteItem/FavoriteItem";
+import { FavoritesItemsStyles } from "./FavoritesItemsStyles";
 
 const FavoritesItems = ({ favoritesItems }) => {
   return (

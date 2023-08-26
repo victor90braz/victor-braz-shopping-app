@@ -3,11 +3,6 @@ import styled from "styled-components";
 export const FavoritesItemsStyles = styled.div`
   padding: 20px;
 
-  .favorites-title {
-    font-size: 24px;
-    margin-bottom: 15px;
-  }
-
   .favorites-list {
     list-style: none;
     padding: 0;
@@ -24,12 +19,12 @@ export const FavoritesItemsStyles = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
 
-    .favorites-storage,
-    .favorites-color,
-    .favorites-brand,
-    .favorites-id {
-      margin-right: 10px;
-    }
+  .favorites-storage,
+  .favorites-color,
+  .favorites-brand,
+  .favorites-id {
+    margin-right: 10px;
   }
 `;
