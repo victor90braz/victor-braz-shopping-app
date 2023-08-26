@@ -12,6 +12,16 @@ export const HeaderNavStyle = styled.nav`
   h1 {
     font-size: 1.5rem;
   }
+  span {
+    padding: 10px;
+    background-color: black;
+    border-radius: 50%;
+  }
+  .product-count {
+    font-size: 14px;
+    color: white;
+    margin-top: 0.5rem;
+  }
 
   a {
     color: black;
