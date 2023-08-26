@@ -1,11 +1,10 @@
 // @ts-nocheck
-import { CardActionsStyles } from "./CardActionStyles";
 import { useState } from "preact/hooks";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import FavoritesItems from "../FavoritesItems/FavoritesItems";
+import { faShoppingCart, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { Modal } from "react-bootstrap";
+import FavoritesItems from "../../pages/FavoritesItems/FavoritesItems";
+import { CardActionsStyles } from "./CardActionStyles";
 
 const CardActions = ({ product }) => {
   const [selectedStorage, setSelectedStorage] = useState("defaultStorage");
@@ -15,6 +14,14 @@ const CardActions = ({ product }) => {
   const [showModal, setShowModal] = useState(false);
 
   const handleAddToCart = () => {
+    if (
+      selectedStorage === "defaultStorage" ||
+      selectedColor === "defaultColor"
+    ) {
+      alert("Please select storage and color before adding to cart.");
+      return;
+    }
+
     const newItem = {
       selectedStorage,
       selectedColor,
