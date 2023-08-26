@@ -2,9 +2,13 @@
 import { DetailsViewStyles } from "./DetailsViewStyles";
 import ItemDescription from "../../components/ItemDescription/ItemDescription";
 import { useFetchProduct } from "../../hooks/useFetchProduct";
+import { useAppSelector } from "../../hooks/store";
 
 const DetailsView = ({ id }) => {
   const { data: product, isLoading } = useFetchProduct(id, false);
+
+  const products = useAppSelector((state) => state.products);
+  console.log(products);
 
   return (
     <DetailsViewStyles>
