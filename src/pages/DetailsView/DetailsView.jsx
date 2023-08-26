@@ -4,7 +4,7 @@ import ItemDescription from "../../components/ItemDescription/ItemDescription";
 import { useFetchProduct } from "../../hooks/useFetchProduct";
 
 const DetailsView = ({ id }) => {
-  const { product, isLoading } = useFetchProduct(id);
+  const { data: product, isLoading } = useFetchProduct(id, false);
 
   return (
     <DetailsViewStyles>
@@ -17,7 +17,6 @@ const DetailsView = ({ id }) => {
           <div className="header">
             <h2>Details View</h2>
           </div>
-
           <ItemDescription product={product} />
         </>
       )}

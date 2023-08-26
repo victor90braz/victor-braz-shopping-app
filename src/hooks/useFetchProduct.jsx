@@ -1,20 +1,21 @@
-// Create a custom hook for fetching data
 import { useEffect, useState } from "preact/hooks";
 
-export const useFetchProduct = (id) => {
-  const [product, setProduct] = useState({});
+export const useFetchProduct = (id, isList) => {
+  const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const url = `https://itx-frontend-test.onrender.com/api/product/${id}`;
+    const url = isList
+      ? "https://itx-frontend-test.onrender.com/api/product/"
+      : `https://itx-frontend-test.onrender.com/api/product/${id}`;
 
     fetch(url)
       .then((response) => response.json())
-      .then((data) => {
-        setProduct(data);
+      .then((responseData) => {
+        setData(responseData);
         setIsLoading(false);
       });
-  }, [id]);
+  }, [id, isList]);
 
-  return { product, isLoading };
+  return { data, isLoading };
 };

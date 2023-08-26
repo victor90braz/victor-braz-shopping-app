@@ -1,25 +1,15 @@
 // @ts-nocheck
-import { useEffect, useState } from "preact/hooks";
 import ItemList from "../../components/ItemList/ItemList";
 import SearchItem from "../../components/SearchItem/SearchItem";
+import { useFetchProduct } from "../../hooks/useFetchProduct";
 import { MainViewStyles } from "./MainViewStyles";
 
 const MainView = () => {
-  const [products, setProducts] = useState([]);
-  const [filteredProducts, setFilteredProducts] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const url = `https://itx-frontend-test.onrender.com/api/product/`;
-
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        setProducts(data);
-        setFilteredProducts(data);
-        setIsLoading(false);
-      });
-  }, []);
+  const {
+    data: products,
+    isLoading,
+    setData: setFilteredProducts,
+  } = useFetchProduct(null, true);
 
   return (
     <MainViewStyles>
@@ -27,21 +17,20 @@ const MainView = () => {
         products={products}
         setFilteredProducts={setFilteredProducts}
       />
-
       {isLoading ? (
-        <div class="spinner-border text-primary" role="status">
-          <span class="sr-only">Loading...</span>
+        <div className="spinner-border text-primary" role="status">
+          <span className="sr-only">Loading...</span>
         </div>
       ) : (
         <>
-          {filteredProducts.map((product) => (
+          {products.map((product) => (
             <div key={product.id}>
               <a href={`/details/${product.id}`}>
                 <p>{product.name}</p>
               </a>
             </div>
           ))}
-          <ItemList products={filteredProducts} />
+          <ItemList products={products} />
         </>
       )}
     </MainViewStyles>
