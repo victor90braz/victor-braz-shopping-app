@@ -1,9 +1,4 @@
 import { useDispatch, useSelector } from "react-redux";
 
-export function useAppSelector(selector) {
-  return useSelector(selector);
-}
-
-export function useAppDispatch() {
-  return useDispatch();
-}
+export const useAppSelector = (selector) => useSelector(selector);
+export const useAppDispatch = () => useDispatch();
