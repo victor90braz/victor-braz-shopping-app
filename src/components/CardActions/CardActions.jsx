@@ -5,12 +5,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import FavoritesItems from "../FavoritesItems/FavoritesItems";
+import { Button, Modal } from "react-bootstrap";
 
 const CardActions = ({ product }) => {
   const [selectedStorage, setSelectedStorage] = useState("defaultStorage");
   const [selectedColor, setSelectedColor] = useState("defaultColor");
   const [cartItemCount, setCartItemCount] = useState(0);
   const [favoritesItems, setFavoritesItems] = useState([]);
+  const [showModal, setShowModal] = useState(false);
 
   const handleAddToCart = () => {
     const newItem = {
@@ -26,6 +28,10 @@ const CardActions = ({ product }) => {
 
   const handleBackPreviousPage = () => {
     window.location.href = `/`;
+  };
+
+  const toggleModal = () => {
+    setShowModal(!showModal);
   };
 
   return (
@@ -67,13 +73,36 @@ const CardActions = ({ product }) => {
       </div>
 
       <div className="cart-container">
-        <div className="cart-icon">
-          <FontAwesomeIcon icon={faShoppingCart} />
+        <div
+          className="cart-icon"
+          onClick={toggleModal}
+          style={{ cursor: "pointer" }}
+        >
+          <FontAwesomeIcon icon={faShoppingCart} style={{ color: "blue" }} />
         </div>
-        <div className="cart-count">{cartItemCount}</div>
+        <div
+          className="cart-count"
+          onClick={toggleModal}
+          style={{ cursor: "pointer" }}
+        >
+          <span style={{ color: "green" }}>{cartItemCount}</span>
+        </div>
       </div>
 
-      <FavoritesItems favoritesItems={favoritesItems} />
+      <Modal
+        show={showModal}
+        onHide={toggleModal}
+        animation={false}
+        size="lg"
+        className="favorites-modal"
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>Favorites Items</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <FavoritesItems favoritesItems={favoritesItems} />
+        </Modal.Body>
+      </Modal>
 
       <button className="btn btn-primary" onClick={handleBackPreviousPage}>
         <FontAwesomeIcon icon={faArrowLeft} /> Back
