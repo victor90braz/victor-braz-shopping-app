@@ -1,22 +1,10 @@
 // @ts-nocheck
-import { useEffect, useState } from "preact/hooks";
 import ActionsCart from "../../components/ActionsCart/ActionsCart";
+import { useFetchProduct } from "../../hooks/useFetchProduct";
 import { ActionsCartPageStyles } from "./ActionsCartPageStyles";
 
 const ActionsCartPage = ({ id }) => {
-  const [product, setProduct] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const url = `https://itx-frontend-test.onrender.com/api/product/${id}`;
-
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        setProduct(data);
-        setIsLoading(false);
-      });
-  }, [id]);
+  const { data: product, isLoading } = useFetchProduct(id, false);
 
   return (
     <ActionsCartPageStyles>
