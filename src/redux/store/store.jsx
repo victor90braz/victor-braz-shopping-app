@@ -1,11 +1,9 @@
-// @ts-nocheck
 import { configureStore } from "@reduxjs/toolkit";
-import productsSlice from "../features/products";
+import productsReducer from "../features/products"; // Import the reducer
 
 const store = configureStore({
   reducer: {
-    products: productsSlice,
+    products: productsReducer, // Use the reducer here
   },
 });
-
 export default store;
