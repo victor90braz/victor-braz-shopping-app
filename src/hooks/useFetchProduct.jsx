@@ -5,9 +5,9 @@ export const useFetchProduct = (id, isList) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const url = isList
-      ? "https://itx-frontend-test.onrender.com/api/product/"
-      : `https://itx-frontend-test.onrender.com/api/product/${id}`;
+    const baseUrl = import.meta.env.VITE_API_BASE_URL;
+
+    const url = isList ? `${baseUrl}product/` : `${baseUrl}product/${id}`;
 
     fetch(url)
       .then((response) => response.json())

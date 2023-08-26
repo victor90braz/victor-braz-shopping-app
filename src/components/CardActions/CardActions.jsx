@@ -13,11 +13,6 @@ const CardActions = ({ product }) => {
   const [favoritesItems, setFavoritesItems] = useState([]);
 
   const handleAddToCart = () => {
-    console.log("Selected Storage:", selectedStorage);
-    console.log("Selected Color:", selectedColor);
-    console.log("Id:", product.id);
-    console.log("Brand:", product.brand);
-
     const newItem = {
       selectedStorage,
       selectedColor,
