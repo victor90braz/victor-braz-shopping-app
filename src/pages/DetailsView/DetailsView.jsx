@@ -5,18 +5,12 @@ import ItemDescription from "../../components/ItemDescription/ItemDescription";
 const DetailsView = () => {
   return (
     <DetailsViewStyles>
-      {isLoading ? (
-        <div className="spinner-border text-primary" role="status">
-          <span className="sr-only">Loading...</span>
+      <>
+        <div className="header">
+          <h2>Details View</h2>
         </div>
-      ) : (
-        <>
-          <div className="header">
-            <h2>Details View</h2>
-          </div>
-          <ItemDescription product={product} />
-        </>
-      )}
+        <ItemDescription />
+      </>
     </DetailsViewStyles>
   );
 };
