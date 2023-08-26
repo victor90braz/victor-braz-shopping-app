@@ -5,11 +5,11 @@ import { Header } from "./components/Header/Header.jsx";
 import { NotFound } from "./pages/_404.jsx";
 
 import MainView from "./pages/MainView/MainView";
-import DetailsView from "./pages/DetailsView/DetailsView";
 import ActionsCartPage from "./pages/ActionsCartPage/ActionsCartPage.jsx";
 import { useDispatch } from "react-redux";
 import { useEffect } from "preact/hooks";
 import { thunkLoadProducts } from "./redux/thunks/thunksProducts.jsx";
+import ItemDescription from "./components/ItemDescription/ItemDescription.jsx";
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -24,7 +24,7 @@ export const App = () => {
       <main>
         <Router>
           <Route path="/" component={MainView} />
-          <Route path="/details/:id" component={DetailsView} />
+          <Route path="/details/:id" component={ItemDescription} />
           <Route path="/cart/:id" component={ActionsCartPage} />
           <Route default component={NotFound} />
         </Router>

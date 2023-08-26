@@ -10,12 +10,14 @@ const sliceProducts = createSlice({
         (product) => product.id === action.payload.id
       );
 
-      // If the product doesn't exist, add it to the state
       if (existingProductIndex === -1) {
-        state.push(action.payload);
+        // If the product doesn't exist, add it to the state
+        return [...state, action.payload];
       } else {
         // If the product exists, update its data
-        state[existingProductIndex] = action.payload;
+        const newState = [...state];
+        newState[existingProductIndex] = action.payload;
+        return newState;
       }
     },
   },
