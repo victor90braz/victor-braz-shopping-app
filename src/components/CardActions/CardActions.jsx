@@ -21,36 +21,7 @@ const CardActions = ({ product }) => {
     };
 
     setFavoritesItems((prevFavoritesItems) => [...prevFavoritesItems, newItem]);
-
-    const responseFromAPI = { cartItemCount: 0 };
-    setCartItemCount(responseFromAPI.cartItemCount);
     setCartItemCount(cartItemCount + 1);
-  };
-
-  const renderStorageOptions = () => {
-    return (
-      <>
-        <option value="defaultStorage">Select Storage</option>
-        {product.options.storages.map((storageOption) => (
-          <option key={storageOption.name} value={storageOption.name}>
-            {storageOption.name}
-          </option>
-        ))}
-      </>
-    );
-  };
-
-  const renderColorOptions = () => {
-    return (
-      <>
-        <option value="defaultColor">Select Color</option>
-        {product.options.colors.map((colorOption) => (
-          <option key={colorOption.code} value={colorOption.code}>
-            {colorOption.name}
-          </option>
-        ))}
-      </>
-    );
   };
 
   const handleBackPreviousPage = () => {
@@ -63,37 +34,33 @@ const CardActions = ({ product }) => {
         <div className="selected-storage">
           <select
             value={selectedStorage}
-            onChange={(e) => {
-              setSelectedStorage(e.target.value);
-            }}
+            onChange={(e) => setSelectedStorage(e.target.value)}
           >
-            {renderStorageOptions()}
+            <option value="defaultStorage">Select Storage</option>
+            {product.options.storages.map((storageOption) => (
+              <option key={storageOption.key} value={storageOption.key}>
+                {storageOption.name}
+              </option>
+            ))}
           </select>
         </div>
 
         <div className="selected-color">
           <select
             value={selectedColor}
-            onChange={(e) => {
-              setSelectedColor(e.target.value);
-            }}
+            onChange={(e) => setSelectedColor(e.target.value)}
           >
-            {renderColorOptions()}
+            <option value="defaultColor">Select Color</option>
+            {product.options.colors.map((colorOption) => (
+              <option key={colorOption.key} value={colorOption.key}>
+                {colorOption.name}
+              </option>
+            ))}
           </select>
         </div>
 
         <div className="cart">
-          <button
-            className="button-style"
-            onClick={() =>
-              handleAddToCart(
-                selectedStorage,
-                selectedColor,
-                product.id,
-                product.brand
-              )
-            }
-          >
+          <button className="button-style" onClick={handleAddToCart}>
             ADD BAG
           </button>
         </div>
