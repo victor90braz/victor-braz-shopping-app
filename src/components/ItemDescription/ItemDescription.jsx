@@ -2,22 +2,8 @@
 import { h } from "preact";
 import { ItemDescriptionStyles } from "./ItemDescriptionStyles";
 import CardActions from "../CardActions/CardActions";
-import { useDispatch, useSelector } from "react-redux";
-import { useRoute } from "preact-iso";
-import { thunkLoadSingleProduct } from "../../redux/thunks/thunksProducts";
 
-const ItemDescription = () => {
-  const route = useRoute();
-  const id = route.params.id;
-
-  const dispatch = useDispatch(); // Get the dispatch function
-
-  // Dispatch the action
-  dispatch(thunkLoadSingleProduct(id));
-
-  const products = useSelector((state) => state.products);
-
-  const product = products.find((product) => product.id === id);
+const ItemDescription = ({ product }) => {
   return (
     <ItemDescriptionStyles>
       {product && Object.keys(product).length > 0 ? (
