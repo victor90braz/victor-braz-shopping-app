@@ -64,7 +64,6 @@ const CardActions = ({ product }) => {
           <select
             value={selectedStorage}
             onChange={(e) => {
-              console.log(e.target);
               setSelectedStorage(e.target.value);
             }}
           >
