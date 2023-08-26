@@ -7,7 +7,7 @@ import MainView from "./pages/MainView/MainView";
 import DetailsView from "./pages/DetailsView/DetailsView";
 import ActionsCartPage from "./pages/ActionsCartPage/ActionsCartPage.jsx";
 
-export const AppRoutes = () => {
+export const App = () => {
   return (
     <LocationProvider>
       <Header />
