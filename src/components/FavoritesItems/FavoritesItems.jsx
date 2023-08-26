@@ -1,19 +1,23 @@
-// FavoritesItems.jsx
+// @ts-nocheck
 import { h } from "preact";
+import { FavoritesItemsStyles } from "./FavoritesItemsStyles";
 
 const FavoritesItems = ({ favoritesItems }) => {
   return (
-    <div className="showFavoritesItems">
-      <h1>Favorites Items</h1>
-      <ul>
+    <FavoritesItemsStyles>
+      <ul className="favorites-list">
         {favoritesItems.map((item, index) => (
-          <li key={index}>
-            {item.selectedStorage} - {item.selectedColor} - {item.brand} (ID:{" "}
-            {item.id})
+          <li key={index} className="favorites-item">
+            <div className="favorites-details">
+              <span className="favorites-brand">{item.brand}</span>
+              <span className="favorites-id">(ID: {item.id})</span>
+              <span className="favorites-storage">{item.selectedStorage}</span>
+              <span className="favorites-color">{item.selectedColor}</span>
+            </div>
           </li>
         ))}
       </ul>
-    </div>
+    </FavoritesItemsStyles>
   );
 };
 
