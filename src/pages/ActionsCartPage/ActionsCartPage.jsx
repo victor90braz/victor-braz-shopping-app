@@ -13,7 +13,6 @@ const ActionsCartPage = ({ id }) => {
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setProduct(data);
         setIsLoading(false);
       });
