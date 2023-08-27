@@ -15,12 +15,17 @@ const sliceProducts = createSlice({
       const addNewData = action.payload;
       return [...currentData, addNewData];
     },
+    createNewProduct: (state, action) => {
+      const newProduct = action.payload;
+      return [...state, newProduct];
+    },
   },
 });
 
 export const {
   loadProducts: actionLoadProducts,
-  loadSingleProduct: actionloadSingleProduct,
+  loadSingleProduct: actionLoadSingleProduct,
+  createNewProduct: actionCreateNewProduct,
 } = sliceProducts.actions;
 
 export default sliceProducts.reducer;

@@ -1,5 +1,4 @@
 // @ts-nocheck
-// @ts-nocheck
 import { useState } from "preact/hooks";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -11,13 +10,17 @@ import { Modal } from "react-bootstrap";
 import FavoritesItems from "../../pages/FavoritesItems/FavoritesItems";
 import { CardActionsStyles } from "./CardActionStyles";
 import { wrongAction } from "../../modal/modals";
+import { useDispatch } from "react-redux";
+import { actionCreateNewProduct } from "../../redux/features/sliceProducts";
+import { useSelector } from "react-redux";
+import { thunkAddToCart } from "../../redux/thunks/thunksProducts";
 
 const CardActions = ({ product }) => {
   const [selectedStorage, setSelectedStorage] = useState("defaultStorage");
   const [selectedColor, setSelectedColor] = useState("defaultColor");
-  const [cartItemCount, setCartItemCount] = useState(0);
-  const [favoritesItems, setFavoritesItems] = useState([]);
   const [showModal, setShowModal] = useState(false);
+  const [favoritesItems, setFavoritesItems] = useState([]);
+  const dispatch = useDispatch();
 
   const handleAddToCart = () => {
     if (
@@ -31,14 +34,20 @@ const CardActions = ({ product }) => {
     }
 
     const newItem = {
-      selectedStorage,
-      selectedColor,
       id: product.id,
-      brand: product.brand,
+      selectedColor,
+      selectedStorage,
     };
 
     setFavoritesItems((prevFavoritesItems) => [...prevFavoritesItems, newItem]);
-    setCartItemCount(cartItemCount + 1);
+    // Dispatch the action to add the item to the Redux cart
+    dispatch(actionCreateNewProduct(newItem));
+
+    // Update the local storage state with the latest cart items
+    localStorage.setItem(
+      "__redux__state",
+      JSON.stringify(dispatch(thunkAddToCart(newItem)))
+    );
   };
 
   const handleBackPreviousPage = () => {
@@ -100,7 +109,7 @@ const CardActions = ({ product }) => {
           onClick={toggleModal}
           style={{ cursor: "pointer" }}
         >
-          <span style={{ color: "green" }}>{cartItemCount}</span>
+          <span style={{ color: "green" }}>100</span>
         </div>
       </div>
 
