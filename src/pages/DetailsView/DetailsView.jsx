@@ -1,26 +1,31 @@
 // @ts-nocheck
+// DetailsView.jsx
+
 import { h } from "preact";
 import { useEffect, useState } from "preact/hooks";
 import { useDispatch } from "react-redux";
 import { DetailsViewStyles } from "./DetailsViewStyles";
 import ItemDescription from "../../components/ItemDescription/ItemDescription";
-import { fetchSingleProduct } from "../../redux/thunks/thunksProducts";
+import { thunkLoadSingleProduct } from "../../redux/thunks/thunksProducts";
+import { actionloadSingleProduct } from "../../redux/features/sliceProducts";
 
 const DetailsView = ({ id }) => {
+  const dispatch = useDispatch();
   const [product, setProduct] = useState(null);
   const [productLoaded, setProductLoaded] = useState(false);
 
   useEffect(() => {
     (async () => {
       try {
-        const productData = await fetchSingleProduct(id);
+        const productData = await dispatch(thunkLoadSingleProduct(id));
+        dispatch(actionloadSingleProduct(productData)); // Dispatch the action with the payload
         setProduct(productData);
         setProductLoaded(true);
       } catch (error) {
         console.error("Error loading product:", error);
       }
     })();
-  }, [id]);
+  }, [id, dispatch]);
 
   return (
     <DetailsViewStyles>
