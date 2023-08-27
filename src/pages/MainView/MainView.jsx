@@ -1,4 +1,5 @@
 // @ts-nocheck
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { MainViewStyles } from "./MainViewStyles";
 import SearchItem from "../../components/SearchItem/SearchItem";
@@ -9,7 +10,9 @@ const MainView = () => {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products);
 
-  dispatch(thunkLoadProducts());
+  useEffect(() => {
+    dispatch(thunkLoadProducts());
+  }, [dispatch]);
 
   return (
     <MainViewStyles>
