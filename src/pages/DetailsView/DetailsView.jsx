@@ -1,5 +1,4 @@
 // @ts-nocheck
-
 import { h } from "preact";
 import { useEffect } from "preact/hooks";
 import { useDispatch, useSelector } from "react-redux";
