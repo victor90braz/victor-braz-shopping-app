@@ -12,7 +12,7 @@ export const ItemStyle = styled.div`
     height: fit-content;
 
     @media (max-width: 715px) {
-      width: 30rem;
+      width: 29rem;
     }
   }
 
