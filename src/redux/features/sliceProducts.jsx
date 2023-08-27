@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = (() => {
-  const persistedState = localStorage.getItem("__redux_state__");
+  const persistedState = localStorage.getItem("__redux__state__");
 
   return persistedState ? JSON.parse(persistedState).products : [];
 })();
