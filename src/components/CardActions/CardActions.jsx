@@ -39,7 +39,7 @@ const CardActions = ({ product }) => {
       ...prevFavoritesItems,
       sendBodyProduct,
     ]);
-    // Dispatch the action to add the item to the Redux cart
+
     dispatch(thunkAddToCart(sendBodyProduct));
   };
 
@@ -102,7 +102,7 @@ const CardActions = ({ product }) => {
           onClick={toggleModal}
           style={{ cursor: "pointer" }}
         >
-          <span style={{ color: "green" }}>100</span>
+          <span style={{ color: "green" }}>{favoritesItems.length}</span>
         </div>
       </div>
 
