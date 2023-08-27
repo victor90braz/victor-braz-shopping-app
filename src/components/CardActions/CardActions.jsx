@@ -55,7 +55,7 @@ const CardActions = ({ product }) => {
         <div className="selected-storage">
           <select
             value={selectedStorage}
-            onChange={(e) => setSelectedStorage(e.target.value)}
+            onChange={(event) => setSelectedStorage(event.target.value)}
           >
             <option value="defaultStorage">Select Storage</option>
             {product.options.storages.map((storageOption) => (
@@ -69,7 +69,7 @@ const CardActions = ({ product }) => {
         <div className="selected-color">
           <select
             value={selectedColor}
-            onChange={(e) => setSelectedColor(e.target.value)}
+            onChange={(event) => setSelectedColor(e.tventarget.value)}
           >
             <option value="defaultColor">Select Color</option>
             {product.options.colors.map((colorOption) => (
