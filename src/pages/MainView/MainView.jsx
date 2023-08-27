@@ -1,11 +1,21 @@
 // @ts-nocheck
-import { useSelector } from "react-redux";
+// @ts-nocheck
+import { h } from "preact";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "preact/hooks";
 import { MainViewStyles } from "./MainViewStyles";
 import SearchItem from "../../components/SearchItem/SearchItem";
 import ItemList from "../../components/ItemList/ItemList";
+import { thunkLoadProducts } from "../../redux/thunks/thunksProducts.jsx";
 
 const MainView = () => {
+  const dispatch = useDispatch();
   const products = useSelector((state) => state.products);
+
+  useEffect(() => {
+    dispatch(thunkLoadProducts());
+  }, [dispatch]);
+
   return (
     <MainViewStyles>
       <SearchItem products={products} />

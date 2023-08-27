@@ -1,35 +1,33 @@
 // @ts-nocheck
 // DetailsView.jsx
 import { h } from "preact";
-import { useEffect, useState } from "preact/hooks";
-import { useDispatch } from "react-redux";
+import { useEffect } from "preact/hooks";
+import { useDispatch, useSelector } from "react-redux";
 import { DetailsViewStyles } from "./DetailsViewStyles";
 import ItemDescription from "../../components/ItemDescription/ItemDescription";
 import { thunkLoadSingleProduct } from "../../redux/thunks/thunksProducts";
 
 const DetailsView = ({ id }) => {
   const dispatch = useDispatch();
-  const [product, setProduct] = useState(null);
-  const [productLoaded, setProductLoaded] = useState(false);
 
+  // Use useSelector to directly access the product from the store
+  const productFromStore = useSelector((state) =>
+    state.products.find((product) => product.id === id)
+  );
+
+  // If the product is not in the store, fetch and dispatch it
   useEffect(() => {
-    (async () => {
-      try {
-        const productData = await dispatch(thunkLoadSingleProduct(id));
-        setProduct(productData);
-        setProductLoaded(true);
-      } catch (error) {
-        console.error("Error loading product:", error);
-      }
-    })();
-  }, [id, dispatch]);
+    if (!productFromStore) {
+      dispatch(thunkLoadSingleProduct(id));
+    }
+  }, [dispatch, id, productFromStore]);
 
   return (
     <DetailsViewStyles>
       <div className="header">
         <h2>Details View</h2>
       </div>
-      {productLoaded && <ItemDescription product={product} />}
+      {productFromStore && <ItemDescription product={productFromStore} />}
     </DetailsViewStyles>
   );
 };
