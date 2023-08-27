@@ -11,43 +11,36 @@ import FavoritesItems from "../../pages/FavoritesItems/FavoritesItems";
 import { CardActionsStyles } from "./CardActionStyles";
 import { wrongAction } from "../../modal/modals";
 import { useDispatch } from "react-redux";
-import { actionCreateNewProduct } from "../../redux/features/sliceProducts";
-import { useSelector } from "react-redux";
+
 import { thunkAddToCart } from "../../redux/thunks/thunksProducts";
 
 const CardActions = ({ product }) => {
-  const [selectedStorage, setSelectedStorage] = useState("defaultStorage");
-  const [selectedColor, setSelectedColor] = useState("defaultColor");
+  const [storageCode, setSelectedStorage] = useState("defaultStorage");
+  const [colorCode, setSelectedColor] = useState("defaultColor");
   const [showModal, setShowModal] = useState(false);
   const [favoritesItems, setFavoritesItems] = useState([]);
   const dispatch = useDispatch();
 
   const handleAddToCart = () => {
-    if (
-      selectedStorage === "defaultStorage" ||
-      selectedColor === "defaultColor"
-    ) {
+    if (storageCode === "defaultStorage" || colorCode === "defaultColor") {
       wrongAction(
         "Please select both storage and color before adding to cart."
       );
       return;
     }
 
-    const newItem = {
+    const sendBodyProduct = {
       id: product.id,
-      selectedColor,
-      selectedStorage,
+      colorCode,
+      storageCode,
     };
 
-    setFavoritesItems((prevFavoritesItems) => [...prevFavoritesItems, newItem]);
+    setFavoritesItems((prevFavoritesItems) => [
+      ...prevFavoritesItems,
+      sendBodyProduct,
+    ]);
     // Dispatch the action to add the item to the Redux cart
-    dispatch(actionCreateNewProduct(newItem));
-
-    // Update the local storage state with the latest cart items
-    localStorage.setItem(
-      "__redux__state",
-      JSON.stringify(dispatch(thunkAddToCart(newItem)))
-    );
+    dispatch(thunkAddToCart(sendBodyProduct));
   };
 
   const handleBackPreviousPage = () => {
@@ -63,7 +56,7 @@ const CardActions = ({ product }) => {
       <div className="container-card-actions">
         <div className="selected-storage">
           <select
-            value={selectedStorage}
+            value={storageCode}
             onChange={(event) => setSelectedStorage(event.target.value)}
           >
             <option value="defaultStorage">Select Storage</option>
@@ -77,7 +70,7 @@ const CardActions = ({ product }) => {
 
         <div className="selected-color">
           <select
-            value={selectedColor}
+            value={colorCode}
             onChange={(event) => setSelectedColor(event.target.value)}
           >
             <option value="defaultColor">Select Color</option>
