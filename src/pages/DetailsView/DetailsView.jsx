@@ -1,13 +1,11 @@
 // @ts-nocheck
 // DetailsView.jsx
-
 import { h } from "preact";
 import { useEffect, useState } from "preact/hooks";
 import { useDispatch } from "react-redux";
 import { DetailsViewStyles } from "./DetailsViewStyles";
 import ItemDescription from "../../components/ItemDescription/ItemDescription";
 import { thunkLoadSingleProduct } from "../../redux/thunks/thunksProducts";
-import { actionloadSingleProduct } from "../../redux/features/sliceProducts";
 
 const DetailsView = ({ id }) => {
   const dispatch = useDispatch();
@@ -18,7 +16,6 @@ const DetailsView = ({ id }) => {
     (async () => {
       try {
         const productData = await dispatch(thunkLoadSingleProduct(id));
-        dispatch(actionloadSingleProduct(productData)); // Dispatch the action with the payload
         setProduct(productData);
         setProductLoaded(true);
       } catch (error) {

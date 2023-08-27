@@ -39,6 +39,10 @@ export const fetchSingleProduct = async (id) => {
 export const thunkLoadSingleProduct = (id) => async (dispatch) => {
   try {
     const productData = await fetchSingleProduct(id);
+
+    // Dispatch the action with the fetched product data as payload
+    dispatch(actionloadSingleProduct(productData));
+
     return productData; // Return the fetched product data
   } catch (error) {
     console.error("Error loading products:", error);
