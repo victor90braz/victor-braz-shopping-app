@@ -1,8 +1,5 @@
 // @ts-nocheck
-// @ts-nocheck
-import { h } from "preact";
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from "preact/hooks";
 import { MainViewStyles } from "./MainViewStyles";
 import SearchItem from "../../components/SearchItem/SearchItem";
 import ItemList from "../../components/ItemList/ItemList";
@@ -12,9 +9,7 @@ const MainView = () => {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products);
 
-  useEffect(() => {
-    dispatch(thunkLoadProducts());
-  }, [dispatch]);
+  dispatch(thunkLoadProducts());
 
   return (
     <MainViewStyles>
