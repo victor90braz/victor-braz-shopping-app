@@ -39,7 +39,6 @@ const CardActions = ({ product }) => {
 
     setFavoritesItems((prevFavoritesItems) => [...prevFavoritesItems, newItem]);
     setCartItemCount(cartItemCount + 1);
-    correctAction("Great! The product has been added to your cart.");
   };
 
   const handleBackPreviousPage = () => {
