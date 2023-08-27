@@ -1,7 +1,12 @@
 // @ts-nocheck
+// @ts-nocheck
 import { useState } from "preact/hooks";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShoppingCart, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import {
+  faShoppingCart,
+  faArrowLeft,
+  faTimes,
+} from "@fortawesome/free-solid-svg-icons";
 import { Modal } from "react-bootstrap";
 import FavoritesItems from "../../pages/FavoritesItems/FavoritesItems";
 import { CardActionsStyles } from "./CardActionStyles";
@@ -107,8 +112,24 @@ const CardActions = ({ product }) => {
         size="lg"
         className="favorites-modal"
       >
-        <Modal.Header closeButton>
+        <Modal.Header>
           <Modal.Title>Favorites Items</Modal.Title>
+          <button
+            type="button"
+            className="btn-close-modal"
+            aria-label="Close"
+            onClick={toggleModal}
+            style={{
+              cursor: "pointer",
+              background: "none",
+              border: "none",
+              padding: "0.5rem",
+              fontSize: "1.5rem",
+              color: "red",
+            }}
+          >
+            <FontAwesomeIcon icon={faTimes} />
+          </button>
         </Modal.Header>
         <Modal.Body>
           <FavoritesItems favoritesItems={favoritesItems} />
