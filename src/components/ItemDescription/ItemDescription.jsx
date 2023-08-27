@@ -1,6 +1,6 @@
 // @ts-nocheck
+import { h } from "preact";
 import { ItemDescriptionStyles } from "./ItemDescriptionStyles";
-import CardActions from "../CardActions/CardActions";
 
 const ItemDescription = ({ product }) => {
   return (
@@ -86,8 +86,6 @@ const ItemDescription = ({ product }) => {
                 )}
               </ul>
             </div>
-
-            <CardActions product={product} />
           </div>
         </div>
       ) : (

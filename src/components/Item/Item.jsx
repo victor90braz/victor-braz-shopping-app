@@ -6,7 +6,7 @@ const Item = ({ product }) => {
   const priceContent =
     product.price === 0 ? "Not Available" : `${product.price}€`;
 
-  const handleDetailClick = () => {
+  const handleDetailClick = async () => {
     window.location.href = `/details/${product.id}`;
   };
 

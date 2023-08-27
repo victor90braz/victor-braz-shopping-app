@@ -1,28 +1,30 @@
 // @ts-nocheck
-import ItemList from "../../components/ItemList/ItemList";
-import SearchItem from "../../components/SearchItem/SearchItem";
-import { useFetchProduct } from "../../hooks/useFetchProduct";
+// @ts-nocheck
+import { h } from "preact";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "preact/hooks";
 import { MainViewStyles } from "./MainViewStyles";
+import SearchItem from "../../components/SearchItem/SearchItem";
+import ItemList from "../../components/ItemList/ItemList";
+import { thunkLoadProducts } from "../../redux/thunks/thunksProducts.jsx";
 
 const MainView = () => {
-  const {
-    data: products,
-    isLoading,
-    setData: setFilteredProducts,
-  } = useFetchProduct(null, true);
+  const dispatch = useDispatch();
+  const products = useSelector((state) => state.products);
+
+  useEffect(() => {
+    dispatch(thunkLoadProducts());
+  }, [dispatch]);
 
   return (
     <MainViewStyles>
-      <SearchItem
-        products={products}
-        setFilteredProducts={setFilteredProducts}
-      />
-      {isLoading ? (
+      <SearchItem products={products} />
+      {products.length === 0 ? (
         <div className="spinner-border text-primary" role="status">
           <span className="sr-only">Loading...</span>
         </div>
       ) : (
-        <>
+        <div>
           {products.map((product) => (
             <div key={product.id}>
               <a href={`/details/${product.id}`}>
@@ -31,7 +33,7 @@ const MainView = () => {
             </div>
           ))}
           <ItemList products={products} />
-        </>
+        </div>
       )}
     </MainViewStyles>
   );
