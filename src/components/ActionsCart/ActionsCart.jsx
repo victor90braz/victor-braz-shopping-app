@@ -17,7 +17,6 @@ const ActionsCart = ({ product }) => {
                 className="card-img-top"
               />
             </div>
-            <CardActions product={product} />
           </div>
         </div>
       ) : (

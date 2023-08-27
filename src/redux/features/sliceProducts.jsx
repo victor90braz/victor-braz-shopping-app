@@ -6,19 +6,10 @@ const sliceProducts = createSlice({
   reducers: {
     loadProducts: (state, action) => action.payload,
     loadSingleProduct: (state, action) => {
-      const existingProductIndex = state.findIndex(
-        (product) => product.id === action.payload.id
-      );
-
-      if (existingProductIndex === -1) {
-        // If the product doesn't exist, add it to the state
-        return [...state, action.payload];
-      } else {
-        // If the product exists, update its data
-        const newState = [...state];
-        newState[existingProductIndex] = action.payload;
-        return newState;
-      }
+      const newProduct = action.payload;
+      console.log("newProduct");
+      console.log(newProduct);
+      return [...state, newProduct];
     },
   },
 });

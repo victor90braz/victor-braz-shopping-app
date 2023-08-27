@@ -17,7 +17,7 @@ export const thunkLoadProducts = () => async (dispatch) => {
   }
 };
 
-export const thunkLoadSingleProduct = (id) => async (dispatch) => {
+export const fetchSingleProduct = async (id) => {
   try {
     const baseUrl = import.meta.env.VITE_SHOPPING_APP_API_BASE_URL;
     const url = `${baseUrl}product/${id}`;
@@ -28,8 +28,17 @@ export const thunkLoadSingleProduct = (id) => async (dispatch) => {
       throw new Error("Network response was not ok");
     }
 
-    const product = await response.json();
+    const productData = await response.json();
+    return productData;
+  } catch (error) {
+    console.error("Error loading product:", error);
+    throw error;
+  }
+};
 
+export const thunkLoadSingleProduct = (id) => async (dispatch) => {
+  try {
+    const product = await fetchSingleProduct(id);
     dispatch(actionloadSingleProduct(product));
   } catch (error) {
     console.error("Error loading products:", error);
