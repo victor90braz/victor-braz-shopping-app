@@ -69,7 +69,7 @@ const CardActions = ({ product }) => {
         <div className="selected-color">
           <select
             value={selectedColor}
-            onChange={(event) => setSelectedColor(e.tventarget.value)}
+            onChange={(event) => setSelectedColor(event.target.value)}
           >
             <option value="defaultColor">Select Color</option>
             {product.options.colors.map((colorOption) => (
