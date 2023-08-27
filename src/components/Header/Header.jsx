@@ -3,11 +3,11 @@ import { useLocation } from "preact-iso";
 import { HeaderNavStyle } from "./HeaderStyles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
-import { useFetchProduct } from "../../hooks/useFetchProduct";
+import { useSelector } from "react-redux";
 
 export function Header() {
   const { url } = useLocation();
-  const { data: products } = useFetchProduct(null, true);
+  const productsLength = useSelector((state) => state.products.length);
 
   return (
     <HeaderNavStyle>
@@ -19,7 +19,7 @@ export function Header() {
         <h1>Shopping App</h1>
       </a>
       <div class="product-count">
-        <span>{products.length}</span> Total Products
+        Total Products: <span>{productsLength}</span>
       </div>
     </HeaderNavStyle>
   );
