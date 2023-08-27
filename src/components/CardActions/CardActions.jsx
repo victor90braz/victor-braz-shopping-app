@@ -10,7 +10,7 @@ import {
 import { Modal } from "react-bootstrap";
 import FavoritesItems from "../../pages/FavoritesItems/FavoritesItems";
 import { CardActionsStyles } from "./CardActionStyles";
-import { correctAction, wrongAction } from "../../modal/modals";
+import { wrongAction } from "../../modal/modals";
 
 const CardActions = ({ product }) => {
   const [selectedStorage, setSelectedStorage] = useState("defaultStorage");
