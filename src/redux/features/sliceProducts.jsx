@@ -5,7 +5,10 @@ const sliceProducts = createSlice({
   initialState: [],
   reducers: {
     loadProducts: (state, action) => action.payload,
-    loadSingleProduct: (state, action) => [...state, action.payload],
+    loadSingleProduct: (currentData, action) => {
+      const addNewData = action.payload;
+      return [...currentData, addNewData];
+    },
   },
 });
 
