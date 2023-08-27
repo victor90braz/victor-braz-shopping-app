@@ -9,7 +9,11 @@ export const ItemStyle = styled.div`
     align-items: center;
     margin: 10px;
     margin-right: 0.5rem !important;
-    height: 34vh;
+    height: fit-content;
+
+    @media (max-width: 715px) {
+      width: 29rem;
+    }
   }
 
   .image-container {

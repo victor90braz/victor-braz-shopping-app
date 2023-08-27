@@ -1,11 +1,16 @@
 // @ts-nocheck
+// @ts-nocheck
 import { useState } from "preact/hooks";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShoppingCart, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import {
+  faShoppingCart,
+  faArrowLeft,
+  faTimes,
+} from "@fortawesome/free-solid-svg-icons";
 import { Modal } from "react-bootstrap";
 import FavoritesItems from "../../pages/FavoritesItems/FavoritesItems";
 import { CardActionsStyles } from "./CardActionStyles";
-import { correctAction, wrongAction } from "../../modal/modals";
+import { wrongAction } from "../../modal/modals";
 
 const CardActions = ({ product }) => {
   const [selectedStorage, setSelectedStorage] = useState("defaultStorage");
@@ -34,7 +39,6 @@ const CardActions = ({ product }) => {
 
     setFavoritesItems((prevFavoritesItems) => [...prevFavoritesItems, newItem]);
     setCartItemCount(cartItemCount + 1);
-    correctAction("Great! The product has been added to your cart.");
   };
 
   const handleBackPreviousPage = () => {
@@ -51,7 +55,7 @@ const CardActions = ({ product }) => {
         <div className="selected-storage">
           <select
             value={selectedStorage}
-            onChange={(e) => setSelectedStorage(e.target.value)}
+            onChange={(event) => setSelectedStorage(event.target.value)}
           >
             <option value="defaultStorage">Select Storage</option>
             {product.options.storages.map((storageOption) => (
@@ -65,7 +69,7 @@ const CardActions = ({ product }) => {
         <div className="selected-color">
           <select
             value={selectedColor}
-            onChange={(e) => setSelectedColor(e.target.value)}
+            onChange={(event) => setSelectedColor(event.target.value)}
           >
             <option value="defaultColor">Select Color</option>
             {product.options.colors.map((colorOption) => (
@@ -107,8 +111,24 @@ const CardActions = ({ product }) => {
         size="lg"
         className="favorites-modal"
       >
-        <Modal.Header closeButton>
+        <Modal.Header>
           <Modal.Title>Favorites Items</Modal.Title>
+          <button
+            type="button"
+            className="btn-close-modal"
+            aria-label="Close"
+            onClick={toggleModal}
+            style={{
+              cursor: "pointer",
+              background: "none",
+              border: "none",
+              padding: "0.5rem",
+              fontSize: "1.5rem",
+              color: "red",
+            }}
+          >
+            <FontAwesomeIcon icon={faTimes} />
+          </button>
         </Modal.Header>
         <Modal.Body>
           <FavoritesItems favoritesItems={favoritesItems} />
