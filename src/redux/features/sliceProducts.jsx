@@ -5,12 +5,7 @@ const sliceProducts = createSlice({
   initialState: [],
   reducers: {
     loadProducts: (state, action) => action.payload,
-    loadSingleProduct: (state, action) => {
-      const newProduct = action.payload;
-      console.log("newProduct");
-      console.log(newProduct);
-      return [...state, newProduct];
-    },
+    loadSingleProduct: (state, action) => [...state, action.payload],
   },
 });
 
