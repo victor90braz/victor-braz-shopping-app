@@ -57,6 +57,16 @@ export const thunkAddToCart = (productData) => async (dispatch) => {
 
     const responseData = await response.json();
 
+    // Get the existing cart items from local storage
+    const existingCartItems =
+      JSON.parse(localStorage.getItem("cartItems")) || [];
+
+    // Update cart items with the new item
+    const updatedCartItems = [...existingCartItems, responseData];
+
+    // Save the updated cart items back to local storage
+    localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
+
     dispatch(actionCreateNewProduct(responseData));
   } catch (error) {
     console.error("Error adding to cart:", error);
