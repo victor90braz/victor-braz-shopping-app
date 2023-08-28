@@ -68,6 +68,22 @@ export const CardActionsStyles = styled.div`
     font-size: 2rem;
   }
 
+  .container-info-items {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .cart-container {
+    padding: 2px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+  }
+
   .cart-container:hover {
     padding: 5px;
     border: 1px solid greenyellow;

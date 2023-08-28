@@ -90,21 +90,25 @@ const CardActions = ({ product }) => {
       </div>
 
       <div className="cart-container">
-        <div
-          className="cart-icon"
-          onClick={toggleModal}
-          style={{ cursor: "pointer" }}
-        >
-          <FontAwesomeIcon icon={faShoppingCart} className="icon" />
-        </div>
-        <div
-          className="cart-count"
-          onClick={toggleModal}
-          style={{ cursor: "pointer" }}
-        >
-          <span style={{ color: "green" }}>{favoritesItems.length}</span>
+        <span>New Items Added</span>
+        <div className="container-info-items">
+          <div
+            className="cart-icon"
+            onClick={toggleModal}
+            style={{ cursor: "pointer" }}
+          >
+            <FontAwesomeIcon icon={faShoppingCart} className="icon" />
+          </div>
+          <div
+            className="cart-count"
+            onClick={toggleModal}
+            style={{ cursor: "pointer" }}
+          >
+            <span style={{ color: "green" }}>{favoritesItems.length}</span>
+          </div>
         </div>
       </div>
+      <small>Please refresh the page to see the total products</small>
 
       <Modal
         show={showModal}
