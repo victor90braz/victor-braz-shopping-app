@@ -1,106 +1,92 @@
+# Shopping App - Mini Application for Purchasing Mobile Devices
+
 This is a mini-application called "Shopping App" for purchasing mobile devices.
 
-- The application will have two main views:
+Website: [https://victor-braz-shopping-app.netlify.app/](https://victor-braz-shopping-app.netlify.app/)
 
-  1. Main View - Product Listing
-  2. Product Details
+## Views
+
+The application has two main views:
+
+1. Main View - Product Listing
+2. Product Details
+
+## Design Implementation
 
 - Design implementation is open-ended but must follow the structure defined in the provided screenshots. A detailed proposal will be positively valued.
 
-- The application will be a Single Page Application (SPA) with client-side routing, avoiding Multi-Page Application (MPA) or Server-Side Rendering (SSR) and React/Preact for application development.
+## Technical Details
 
-- The project must include the following scripts for managing the application:
+- The application is a Single Page Application (SPA) with client-side routing.
+- React/Preact is used for application development.
 
-  1. START - Development mode
-  2. BUILD - Production build
-  3. TEST - Test launch
-  4. LINT - Code linting
+## Environment Variables
 
-- The project should be hosted on an open-source code repository (GitHub/victor90braz) https://github.com/victor90braz/victor-braz-shopping-app.git
+- `VITE_SHOPPING_APP_API_BASE_URL`: API base URL for data management.
+  Example: `https://itx-frontend-test.onrender.com/api/`
 
-**DESCRIPTION OF VIEWS**
+## Scripts
 
-**PLP - Product List Page**
+The project includes the following scripts for managing the application:
 
-- Page displaying the list of products.
-- The page shows all items returned by the API request.
+1. `npm start`: Start in development mode
+2. `npm run build`: Build for production
+3. `npm test`: Run tests
+4. `npm run lint`: Perform code linting
+
+## Repository
+
+The project is hosted on GitHub: [victor-braz-shopping-app](https://github.com/victor90braz/victor-braz-shopping-app.git)
+
+## Product List Page (PLP)
+
+- Displays a list of products.
 - Allows filtering content based on user-entered search criteria.
-- Selecting a product will navigate to its details.
-- A maximum of four items will be shown per row, adapting to different resolutions.
+- Selecting a product navigates to its details.
+- Adapts to different resolutions with a maximum of four items per row.
 
-**PDP - Product Details Page**
+## Product Details Page (PDP)
 
 - Divided into two columns:
-  1. First column displays the product image component.
-  2. Second column displays product details and actions.
+  1. Displays the product image component.
+  2. Displays product details and actions.
 
-**DESCRIPTION OF COMPONENTS**
+## Components
 
-**HEADER**
+### Header
 
-- The application title or icon acts as a link to the main view.
-- Shows breadcrumbs indicating the user's location and provides links for navigation.
-- Displays the number of items added to the cart on the right side of the header.
+- Acts as a link to the main view.
+- Shows breadcrumbs and provides links for navigation.
+- Displays the number of items in the cart.
 
-**SEARCH**
+### Search
 
-- Displays an input field for user text input.
-- Users can filter products based on entered text, comparing it with Brand and Model attributes.
-- Real-time filtering triggers a search whenever the user changes search criteria.
+- Allows users to filter products based on entered text.
+- Real-time filtering updates results.
 
-**ITEM**
+### Item
 
-- Displays the following product information:
-  - Image
-  - Brand
-  - Model
-  - Price
+- Displays product information: Image, Brand, Model, Price.
 
-**IMAGE OF PRODUCT**
+### Image of Product
 
 - Displays the product image.
 
-**DESCRIPTION OF PRODUCT**
+### Description of Product
 
-- Displays details associated with the product, including attributes like:
-  - Brand
-  - Model
-  - Price
-  - CPU
-  - RAM
-  - Operating System
-  - Screen Resolution
-  - Battery
-  - Cameras
-  - Dimensions
-  - Weight
+- Displays detailed product attributes.
 
-**ACTIONS**
+### Actions
 
-- Displays two types of selectors for adding products to the cart:
-  - Storage
-  - Colors
-- Even if there's only one option, the selector should still be shown with default selection.
-- An "Add" button allows users to add the selected product to the cart.
-- Adding a product via the API requires sending:
-  - Product ID
-  - Selected color code
-  - Selected storage code
+- Allows users to add products to the cart.
+- Requires sending product ID, color code, and storage code via the API.
 
-**RESOURCES**
+## Resources
 
-**Integration API**
+### Integration API
 
-- API integration is required for data management.
-- The API domain is consistent for all endpoints: https://front-test-api.herokuapp.com/
-- Endpoint definitions:
-  - Get list of products
-    - Path: GET /api/product
-    - Response: Array of product objects
-  - Get product details
-    - Path: GET /api/product/:id
-    - Response: Product details object
-  - Add product to cart
-    - Path: POST /api/cart
-    - Body: Product data
-    - Response: Cart item count
+- API domain: [https://front-test-api.herokuapp.com/](https://front-test-api.herokuapp.com/)
+- Endpoints:
+  - Get list of products: `GET /api/product`
+  - Get product details: `GET /api/product/:id`
+  - Add product to cart: `POST /api/cart`
