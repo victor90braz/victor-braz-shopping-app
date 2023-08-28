@@ -1,3 +1,4 @@
+// @ts-nocheck
 import {
   actionLoadProducts,
   actionCreateNewProduct,
@@ -57,19 +58,59 @@ export const thunkAddToCart = (productData) => async (dispatch) => {
 
     const responseData = await response.json();
 
-    // Get the existing cart items from local storage
     const existingCartItems =
       JSON.parse(localStorage.getItem("cartItems")) || [];
 
-    // Update cart items with the new item
     const updatedCartItems = [...existingCartItems, responseData];
 
-    // Save the updated cart items back to local storage
     localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
 
+    const expirationTimestamp = Date.now() + 3600000;
+    localStorage.setItem("cartItemsExpiration", expirationTimestamp.toString());
+
     dispatch(actionCreateNewProduct(responseData));
+    debugger;
+    dispatch(revalidateCartItems());
   } catch (error) {
     console.error("Error adding to cart:", error);
     throw error;
+  }
+};
+
+export const revalidateCartItems = () => async (dispatch) => {
+  try {
+    const expirationTimestampString = localStorage.getItem(
+      "cartItemsExpiration"
+    );
+
+    if (expirationTimestampString) {
+      const expirationTimestamp = parseInt(expirationTimestampString, 10);
+
+      if (isNaN(expirationTimestamp)) {
+        console.error("Invalid expiration timestamp format");
+        return;
+      }
+
+      if (Date.now() > expirationTimestamp) {
+        const existingCartItems =
+          JSON.parse(localStorage.getItem("cartItems")) || [];
+
+        const revalidatedCartItems = await performRevalidation(
+          existingCartItems
+        );
+
+        const newExpirationTimestamp = Date.now() + 3600000;
+        localStorage.setItem(
+          "cartItemsExpiration",
+          newExpirationTimestamp.toString()
+        );
+
+        localStorage.setItem("cartItems", JSON.stringify(revalidatedCartItems));
+
+        console.log("Cart items revalidated");
+      }
+    }
+  } catch (error) {
+    console.error("Error revalidating cart items:", error);
   }
 };
