@@ -4,7 +4,6 @@ import { useLocation } from "preact-iso";
 import { HeaderNavStyle } from "./HeaderStyles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
-import { revalidateCartData } from "../../redux/thunks/thunksProducts";
 
 export function Header() {
   const { url } = useLocation();
@@ -13,7 +12,6 @@ export function Header() {
   useEffect(() => {
     const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
     setProductsLength(cartItems.length);
-    revalidateCartData();
 
     const handleStorageChange = (event) => {
       if (event.key === "cartItems") {

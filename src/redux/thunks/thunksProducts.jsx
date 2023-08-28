@@ -57,36 +57,19 @@ export const thunkAddToCart = (productData) => async (dispatch) => {
 
     const responseData = await response.json();
 
-    const existingCartData = JSON.parse(localStorage.getItem("cartData")) || {
-      timestamp: Date.now(),
-      items: [],
-    };
+    // Get the existing cart items from local storage
+    const existingCartItems =
+      JSON.parse(localStorage.getItem("cartItems")) || [];
 
-    const updatedCartItems = [...existingCartData.items, responseData];
+    // Update cart items with the new item
+    const updatedCartItems = [...existingCartItems, responseData];
 
-    existingCartData.timestamp = Date.now();
-    existingCartData.items = updatedCartItems;
-
-    localStorage.setItem("cartData", JSON.stringify(existingCartData));
+    // Save the updated cart items back to local storage
+    localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
 
     dispatch(actionCreateNewProduct(responseData));
   } catch (error) {
     console.error("Error adding to cart:", error);
     throw error;
-  }
-};
-
-const isCartDataExpired = (cartData) => {
-  const currentTime = Date.now();
-  return currentTime - cartData.timestamp > 3600000;
-};
-
-export const revalidateCartData = () => {
-  const cartData = JSON.parse(localStorage.getItem("cartData")) || {};
-  if (isCartDataExpired(cartData)) {
-    localStorage.removeItem("cartData");
-    return [];
-  } else {
-    return cartData.items || [];
   }
 };
