@@ -3,11 +3,12 @@ import { useLocation } from "preact-iso";
 import { HeaderNavStyle } from "./HeaderStyles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
-import { useSelector } from "react-redux";
 
 export function Header() {
   const { url } = useLocation();
-  const productsLength = useSelector((state) => state.products.length);
+
+  const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+  const productsLength = cartItems.length;
 
   return (
     <HeaderNavStyle>
