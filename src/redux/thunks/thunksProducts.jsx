@@ -55,18 +55,9 @@ export const thunkAddToCart = (productData) => async (dispatch) => {
       throw new Error("Network response was not ok");
     }
 
-    // Assuming the response data contains the updated count value in the cart.
     const responseData = await response.json();
-    const updatedCount = responseData.count;
 
-    // You can dispatch actions to update the cart or handle the response accordingly.
-    // For example, you might want to refresh the cart data after adding a product.
-
-    // Dispatch the action to update the products store with the new product
     dispatch(actionCreateNewProduct(responseData));
-
-    // You can dispatch an action to update the cart count in your Redux store.
-    // Example: dispatch(actionUpdateCartCount(updatedCount));
   } catch (error) {
     console.error("Error adding to cart:", error);
     throw error;
