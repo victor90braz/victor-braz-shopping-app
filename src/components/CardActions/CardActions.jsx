@@ -90,7 +90,7 @@ const CardActions = ({ product }) => {
       </div>
 
       <div className="cart-container">
-        <span>New Items Added</span>
+        <span>New Item Added</span>
         <div className="container-info-items">
           <div
             className="cart-icon"
