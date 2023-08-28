@@ -40,7 +40,7 @@ export function Header() {
         <h1>Shopping App</h1>
       </a>
       <div class="product-count">
-        Total Products: <span>{productsLength}</span>
+        Total Products <span>{productsLength}</span>
       </div>
     </HeaderNavStyle>
   );

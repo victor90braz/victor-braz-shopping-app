@@ -11,16 +11,20 @@ export const HeaderNavStyle = styled.nav`
 
   h1 {
     font-size: 1.5rem;
+    text-transform: uppercase;
   }
+
   span {
     padding: 10px;
     background-color: black;
     border-radius: 50%;
   }
+
   .product-count {
     font-size: 14px;
     color: white;
     margin-top: 0.5rem;
+    text-transform: uppercase;
   }
 
   a {

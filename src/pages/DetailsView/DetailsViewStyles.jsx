@@ -25,5 +25,6 @@ export const DetailsViewStyles = styled.section`
     font-size: 1.2rem;
     margin-left: 60px;
     width: 100%;
+    text-transform: uppercase;
   }
 `;

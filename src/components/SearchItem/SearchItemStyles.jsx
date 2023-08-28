@@ -8,6 +8,7 @@ export const SearchItemStyle = styled.nav`
   h2 {
     font-size: 1.2rem;
     margin-left: 60px;
+    text-transform: uppercase;
   }
 
   .form-inline {
