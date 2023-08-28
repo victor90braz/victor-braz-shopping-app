@@ -4,17 +4,17 @@ import { useLocation } from "preact-iso";
 import { HeaderNavStyle } from "./HeaderStyles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
+import { revalidateCartData } from "../../redux/thunks/thunksProducts";
 
 export function Header() {
   const { url } = useLocation();
   const [productsLength, setProductsLength] = useState(0);
 
   useEffect(() => {
-    // Get the cart items from local storage
     const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
     setProductsLength(cartItems.length);
+    revalidateCartData();
 
-    // Listen for changes in local storage (only on the 'cartItems' key)
     const handleStorageChange = (event) => {
       if (event.key === "cartItems") {
         const updatedCartItems = JSON.parse(event.newValue) || [];
@@ -24,7 +24,6 @@ export function Header() {
 
     window.addEventListener("storage", handleStorageChange);
 
-    // Clean up the event listener
     return () => {
       window.removeEventListener("storage", handleStorageChange);
     };
