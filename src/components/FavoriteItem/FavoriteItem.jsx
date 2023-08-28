@@ -8,8 +8,8 @@ const FavoriteItem = ({ item }) => {
       <li className="favorites-item">
         <div className="favorites-details">
           <span className="favorites-id">{item.id}</span>
-          <span className="favorites-color">{item.selectedColor}</span>
-          <span className="favorites-storage">{item.selectedStorage}</span>
+          <span className="favorites-color">{item.colorCode}</span>
+          <span className="favorites-storage">{item.storageCode}</span>
         </div>
       </li>
     </FavoriteItemStyles>
