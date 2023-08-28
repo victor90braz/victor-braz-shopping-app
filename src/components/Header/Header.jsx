@@ -1,4 +1,5 @@
 // @ts-nocheck
+import { useEffect, useState } from "preact/hooks";
 import { useLocation } from "preact-iso";
 import { HeaderNavStyle } from "./HeaderStyles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -6,9 +7,28 @@ import { faHome } from "@fortawesome/free-solid-svg-icons";
 
 export function Header() {
   const { url } = useLocation();
+  const [productsLength, setProductsLength] = useState(0);
 
-  const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-  const productsLength = cartItems.length;
+  useEffect(() => {
+    // Get the cart items from local storage
+    const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+    setProductsLength(cartItems.length);
+
+    // Listen for changes in local storage (only on the 'cartItems' key)
+    const handleStorageChange = (event) => {
+      if (event.key === "cartItems") {
+        const updatedCartItems = JSON.parse(event.newValue) || [];
+        setProductsLength(updatedCartItems.length);
+      }
+    };
+
+    window.addEventListener("storage", handleStorageChange);
+
+    // Clean up the event listener
+    return () => {
+      window.removeEventListener("storage", handleStorageChange);
+    };
+  }, []);
 
   return (
     <HeaderNavStyle>
