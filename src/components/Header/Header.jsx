@@ -12,7 +12,7 @@ export function Header() {
   useEffect(() => {
     // Get the cart items from local storage
     const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-    setProductsLength(cartItems.length - 1);
+    setProductsLength(cartItems.length);
 
     // Listen for changes in local storage (only on the 'cartItems' key)
     const handleStorageChange = (event) => {
