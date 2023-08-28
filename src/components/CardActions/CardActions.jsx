@@ -95,7 +95,7 @@ const CardActions = ({ product }) => {
           onClick={toggleModal}
           style={{ cursor: "pointer" }}
         >
-          <FontAwesomeIcon icon={faShoppingCart} style={{ color: "blue" }} />
+          <FontAwesomeIcon icon={faShoppingCart} className="icon" />
         </div>
         <div
           className="cart-count"

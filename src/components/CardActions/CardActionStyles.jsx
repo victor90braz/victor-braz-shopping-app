@@ -47,6 +47,16 @@ export const CardActionsStyles = styled.div`
     flex-direction: row;
   }
 
+  .icon {
+    color: blue;
+    transition: all 0.3s ease;
+  }
+
+  .icon:hover {
+    color: green;
+    border: 1px solid yellow;
+  }
+
   .cart-icon {
     margin-right: 10px;
     font-size: 2rem;
@@ -56,6 +66,11 @@ export const CardActionsStyles = styled.div`
     font-size: 1rem;
     font-weight: 700;
     font-size: 2rem;
+  }
+
+  .cart-container:hover {
+    padding: 5px;
+    border: 1px solid greenyellow;
   }
 
   .btn-primary {
