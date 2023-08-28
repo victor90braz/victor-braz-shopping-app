@@ -1,11 +1,11 @@
 body {
   margin: 0;
   box-sizing: border-box;
+  min-width: 400px;
 }
 
 #app {
   display: flex;
   flex-direction: column;
   min-height: fit-content;
-  min-width: 514px;
 }
