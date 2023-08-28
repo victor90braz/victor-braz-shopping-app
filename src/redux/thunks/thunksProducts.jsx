@@ -69,7 +69,7 @@ export const thunkAddToCart = (productData) => async (dispatch) => {
     localStorage.setItem("cartItemsExpiration", expirationTimestamp.toString());
 
     dispatch(actionCreateNewProduct(responseData));
-    debugger;
+
     dispatch(revalidateCartItems());
   } catch (error) {
     console.error("Error adding to cart:", error);
