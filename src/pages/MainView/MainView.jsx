@@ -1,38 +1,32 @@
 // @ts-nocheck
-import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { MainViewStyles } from "./MainViewStyles";
-import SearchItem from "../../components/SearchItem/SearchItem";
 import ItemList from "../../components/ItemList/ItemList";
-import { thunkLoadProducts } from "../../redux/thunks/thunksProducts.jsx";
+import SearchItem from "../../components/SearchItem/SearchItem";
+import { MainViewStyles } from "./MainViewStyles";
+import { useEffect, useState } from "preact/hooks";
 
 const MainView = () => {
-  const dispatch = useDispatch();
-  const products = useSelector((state) => state.products);
+  const [products, setProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
 
   useEffect(() => {
-    dispatch(thunkLoadProducts());
-  }, [dispatch]);
+    const url = `https://itx-frontend-test.onrender.com/api/product/`;
+
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        setProducts(data);
+        setFilteredProducts(data);
+      });
+  }, []);
 
   return (
     <MainViewStyles>
-      <SearchItem products={products} />
-      {products.length === 0 ? (
-        <div className="spinner-border text-primary" role="status">
-          <span className="sr-only">Loading...</span>
-        </div>
-      ) : (
-        <div>
-          {products.map((product) => (
-            <div key={product.id}>
-              <a href={`/details/${product.id}`}>
-                <p>{product.name}</p>
-              </a>
-            </div>
-          ))}
-          <ItemList products={products} />
-        </div>
-      )}
+      <SearchItem
+        products={products}
+        setFilteredProducts={setFilteredProducts}
+      />
+
+      <ItemList products={filteredProducts} />
     </MainViewStyles>
   );
 };
