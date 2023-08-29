@@ -2,6 +2,7 @@
 import { ActionsCartStyles } from "./ActionsCartStyles";
 import CardActions from "../CardActions/CardActions";
 import { ItemImage } from "../ItemImage/ItemImage";
+import SpinnersText from "../../modal/SpinnersText";
 
 const ActionsCart = ({ product }) => {
   return (
@@ -21,7 +22,10 @@ const ActionsCart = ({ product }) => {
           </div>
         </div>
       ) : (
-        <div>No product data available.</div>
+        <>
+          <SpinnersText text="loading" />
+          <div>No product data available.</div>
+        </>
       )}
     </ActionsCartStyles>
   );

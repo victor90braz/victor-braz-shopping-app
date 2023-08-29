@@ -2,6 +2,8 @@
 import { h } from "preact";
 import { ItemDescriptionStyles } from "./ItemDescriptionStyles";
 import CardActions from "../CardActions/CardActions";
+import SpinnersText from "../../modal/SpinnersText";
+
 const ItemDescription = ({ product }) => {
   return (
     <ItemDescriptionStyles>
@@ -91,7 +93,10 @@ const ItemDescription = ({ product }) => {
           </div>
         </div>
       ) : (
-        <div>No product data available.</div>
+        <>
+          <SpinnersText text="loading" />
+          <div>No product data available.</div>
+        </>
       )}
     </ItemDescriptionStyles>
   );
