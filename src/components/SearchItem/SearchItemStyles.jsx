@@ -13,6 +13,7 @@ export const SearchItemStyle = styled.nav`
     align-items: center;
     align-content: center;
     flex-wrap: wrap;
+    padding: 20px 10px 10px 10px;
   }
 
   h2 {
@@ -31,7 +32,6 @@ export const SearchItemStyle = styled.nav`
     margin-right: 0.4rem;
 
     @media (max-width: 715px) {
-      margin-right: 0;
     }
   }
 

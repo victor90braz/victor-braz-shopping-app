@@ -1,9 +1,11 @@
 import styled from "styled-components";
 
 export const ItemStyle = styled.div`
+  min-width: 375px;
+
   @media (max-width: 715px) {
     width: -webkit-fill-available;
-    margin-bottom: 5px;
+    padding: 0 10px 10px;
   }
 
   .card {

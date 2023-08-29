@@ -53,7 +53,7 @@ export const HeaderNavStyle = styled.nav`
       font-size: 14px;
       color: white;
       gap: 0;
-      margin-right: 11px;
+      margin-right: 14px;
     }
   }
 
