@@ -13,7 +13,10 @@ export const HeaderNavStyle = styled.nav`
   justify-content: space-between;
 
   @media (max-width: 715px) {
-    flex-direction: column;
+    flex-direction: row;
+    padding: 4px;
+    margin: 0;
+    border-radius: 0;
   }
 
   h1 {

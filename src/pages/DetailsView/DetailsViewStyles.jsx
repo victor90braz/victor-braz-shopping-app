@@ -12,6 +12,7 @@ export const DetailsViewStyles = styled.section`
 
   @media (max-width: 715px) {
     height: fit-content;
+    padding: 0px;
   }
 
   .header {
