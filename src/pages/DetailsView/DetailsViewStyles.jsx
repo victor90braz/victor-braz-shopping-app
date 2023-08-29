@@ -8,7 +8,6 @@ export const DetailsViewStyles = styled.section`
   border-radius: 10px;
   background-color: #10020212;
   flex-direction: column;
-  height: 80vh;
 
   @media (max-width: 715px) {
     height: fit-content;

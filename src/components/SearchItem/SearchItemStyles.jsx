@@ -22,7 +22,7 @@ export const SearchItemStyle = styled.nav`
 
     @media (max-width: 715px) {
       font-size: 1.2rem;
-      margin-left: 0;
+      margin-left: 5px;
       text-transform: uppercase;
     }
   }

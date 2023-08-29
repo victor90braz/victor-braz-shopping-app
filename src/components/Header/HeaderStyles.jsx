@@ -53,7 +53,7 @@ export const HeaderNavStyle = styled.nav`
       font-size: 14px;
       color: white;
       gap: 0;
-      margin-right: 8px;
+      margin-right: 11px;
     }
   }
 
@@ -75,6 +75,7 @@ export const HeaderNavStyle = styled.nav`
       flex-direction: column;
       align-items: center;
       gap: 0;
+      margin-left: 10px;
     }
   }
 `;
