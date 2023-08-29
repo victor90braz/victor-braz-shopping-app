@@ -8,11 +8,12 @@ export const ItemStyle = styled.div`
     flex-wrap: wrap;
     align-items: center;
     margin: 10px;
-    margin-right: 0.5rem !important;
+    margin-right: 0.5rem;
     height: fit-content;
 
     @media (max-width: 715px) {
-      width: 29rem;
+      width: 20.5rem;
+      margin: 0;
     }
   }
 

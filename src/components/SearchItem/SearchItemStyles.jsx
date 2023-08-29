@@ -4,6 +4,7 @@ export const SearchItemStyle = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 10px;
 
   h2 {
     font-size: 1.2rem;
