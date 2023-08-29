@@ -11,4 +11,13 @@ export const MainViewStyles = styled.section`
     margin: 0;
     border-radius: 0;
   }
+
+  .spinnerspinner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: auto;
+  }
 `;
