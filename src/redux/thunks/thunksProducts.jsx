@@ -106,8 +106,6 @@ export const revalidateCartItems = () => async (dispatch) => {
         );
 
         localStorage.setItem("cartItems", JSON.stringify(revalidatedCartItems));
-
-        console.log("Cart items revalidated");
       }
     }
   } catch (error) {
