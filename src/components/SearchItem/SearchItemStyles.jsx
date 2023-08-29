@@ -26,6 +26,7 @@ export const SearchItemStyle = styled.nav`
 
     @media (max-width: 715px) {
       margin-right: 0;
+      width: 100%;
     }
   }
 

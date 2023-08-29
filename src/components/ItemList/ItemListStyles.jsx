@@ -7,8 +7,6 @@ export const ItemListStyles = styled.div`
   justify-items: center;
 
   @media (max-width: 715px) {
-    display: 0;
-    grid-template-columns: none;
-    justify-content: none;
+    padding: 10px;
   }
 `;
