@@ -106,4 +106,17 @@ export const CardActionsStyles = styled.div`
   .btn-primary .svg-inline--fa {
     margin-right: 8px;
   }
+
+  .btn-close-modal {
+    cursor: "pointer";
+    background: "none";
+    border: "none";
+    padding: "0.5rem";
+    font-size: "1.5rem";
+    color: "red";
+  }
+
+  .modal-body {
+    padding: 0;
+  }
 `;

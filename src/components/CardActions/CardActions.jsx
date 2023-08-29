@@ -124,19 +124,11 @@ const CardActions = ({ product }) => {
             className="btn-close-modal"
             aria-label="Close"
             onClick={toggleModal}
-            style={{
-              cursor: "pointer",
-              background: "none",
-              border: "none",
-              padding: "0.5rem",
-              fontSize: "1.5rem",
-              color: "red",
-            }}
           >
             <FontAwesomeIcon icon={faTimes} />
           </button>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body className="modal-body">
           <FavoritesItems favoritesItems={favoritesItems} />
         </Modal.Body>
       </Modal>

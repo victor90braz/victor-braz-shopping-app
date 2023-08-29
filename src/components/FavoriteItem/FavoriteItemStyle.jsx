@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
 export const FavoriteItemStyles = styled.div`
-  padding: 20px;
-
+  padding: 0 10px;
   .favorites-item {
     margin-bottom: 10px;
     padding: 10px;
