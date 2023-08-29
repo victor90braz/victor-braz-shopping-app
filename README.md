@@ -18,7 +18,12 @@ The application has two main views:
 ## Technical Details
 
 - The application is a Single Page Application (SPA) with client-side routing.
-- React/Preact is used for application development.
+- Application development.
+  - React
+  - Preact
+  - React Redux
+  - Styled Components
+  - Bootstrap React
 
 ## Environment Variables
 
