@@ -8,10 +8,11 @@ import { useEffect, useState } from "preact/hooks";
 const MainView = () => {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
-  const [isLoading, setIsLoading] = useState(true); // New state for loading
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const url = `https://itx-frontend-test.onrender.com/api/product/`;
+    const baseUrl = import.meta.env.VITE_SHOPPING_APP_API_BASE_URL;
+    const url = `${baseUrl}product/`;
 
     fetch(url)
       .then((response) => response.json())
