@@ -108,7 +108,7 @@ const CardActions = ({ product }) => {
           </div>
         </div>
       </div>
-      <small>Please refresh the page to see the total products</small>
+      <small>Please refresh the page to see the total products.</small>
 
       <Modal
         show={showModal}
