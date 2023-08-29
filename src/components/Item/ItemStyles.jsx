@@ -1,8 +1,12 @@
 import styled from "styled-components";
 
 export const ItemStyle = styled.div`
+  @media (max-width: 715px) {
+    width: -webkit-fill-available;
+    margin-bottom: 5px;
+  }
+
   .card {
-    width: 22rem;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -12,7 +16,6 @@ export const ItemStyle = styled.div`
     height: fit-content;
 
     @media (max-width: 715px) {
-      width: 20.5rem;
       margin: 0;
     }
   }
