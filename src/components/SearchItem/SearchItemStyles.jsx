@@ -8,16 +8,22 @@ export const SearchItemStyle = styled.nav`
 
   @media (max-width: 715px) {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
   }
 
   h2 {
     font-size: 1.2rem;
-    margin-left: 60px;
+    margin-left: 80px;
     text-transform: uppercase;
 
     @media (max-width: 715px) {
+      font-size: 1.2rem;
       margin-left: 0;
+      text-transform: uppercase;
     }
   }
 
@@ -26,16 +32,11 @@ export const SearchItemStyle = styled.nav`
 
     @media (max-width: 715px) {
       margin-right: 0;
-      width: 100%;
     }
   }
 
   input {
     text-align: right;
-
-    @media (max-width: 715px) {
-      text-align: left;
-    }
   }
 
   a {
