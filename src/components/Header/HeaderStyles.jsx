@@ -52,8 +52,8 @@ export const HeaderNavStyle = styled.nav`
     @media (max-width: 715px) {
       font-size: 14px;
       color: white;
-      margin-top: 0.5rem;
-      text-transform: uppercase;
+      gap: 0;
+      margin-right: 8px;
     }
   }
 
@@ -68,6 +68,13 @@ export const HeaderNavStyle = styled.nav`
 
     &:hover {
       text-decoration: underline;
+    }
+
+    @media (max-width: 715px) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
     }
   }
 `;
